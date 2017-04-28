@@ -22,6 +22,7 @@ namespace liber.Controllers
             
             string usuario=Ousuariorecibido.user;
             string contra = Ousuariorecibido.contraseña;
+            Ousuariorecibido.login(Ousuariorecibido);
             return View();
         }
         public ActionResult About()
