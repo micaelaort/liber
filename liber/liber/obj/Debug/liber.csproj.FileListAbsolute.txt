@@ -1,0 +1,196 @@
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\obj\Debug\liber.csprojResolveAssemblyReference.cache
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\ApplicationInsights.config
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\liber.dll.config
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\liber.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\liber.pdb
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Antlr3.Runtime.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\EntityFramework.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\EntityFramework.SqlServer.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.Web.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Security.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Newtonsoft.Json.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Owin.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Helpers.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Mvc.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Optimization.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Razor.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.Razor.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\WebGrease.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.Web.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Helpers.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Mvc.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Optimization.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.Razor.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\System.Web.WebPages.Razor.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Antlr3.Runtime.pdb
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Newtonsoft.Json.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\EntityFramework.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\EntityFramework.SqlServer.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Security.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.Helpers.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.Mvc.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.Optimization.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.Razor.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.WebPages.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\obj\Debug\liber.dll
+C:\Users\mica\Downloads\repaso programacion\esperemosquefuncione\liber\liber\obj\Debug\liber.pdb
+E:\proyectofinal\programa\liber\liber\liber\bin\ApplicationInsights.config
+E:\proyectofinal\programa\liber\liber\liber\bin\liber.dll.config
+E:\proyectofinal\programa\liber\liber\liber\bin\liber.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\liber.pdb
+E:\proyectofinal\programa\liber\liber\liber\bin\Antlr3.Runtime.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.SqlServer.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Agent.Intercept.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.DependencyCollector.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Web.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.WindowsServer.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.ApplicationInsights.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Core.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.Facebook.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Web.Infrastructure.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Newtonsoft.Json.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Owin.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Helpers.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Mvc.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Optimization.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Razor.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Deployment.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Razor.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\WebGrease.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.DependencyCollector.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Web.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.WindowsServer.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.ApplicationInsights.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Helpers.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Mvc.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Optimization.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Razor.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Deployment.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Razor.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Antlr3.Runtime.pdb
+E:\proyectofinal\programa\liber\liber\liber\bin\Newtonsoft.Json.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.SqlServer.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Core.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.Facebook.xml
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Helpers.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Mvc.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Optimization.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Razor.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.csprojResolveAssemblyReference.cache
+E:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.dll
+E:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.pdb
+F:\proyectofinal\programa\liber\liber\liber\bin\ApplicationInsights.config
+F:\proyectofinal\programa\liber\liber\liber\bin\liber.dll.config
+F:\proyectofinal\programa\liber\liber\liber\bin\liber.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\liber.pdb
+F:\proyectofinal\programa\liber\liber\liber\bin\Antlr3.Runtime.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.SqlServer.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Agent.Intercept.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.DependencyCollector.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Web.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.WindowsServer.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.ApplicationInsights.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Core.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.Facebook.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Web.Infrastructure.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Newtonsoft.Json.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Owin.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Helpers.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Mvc.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Optimization.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Razor.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Deployment.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Razor.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\WebGrease.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.DependencyCollector.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.Web.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AI.WindowsServer.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.ApplicationInsights.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Helpers.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Mvc.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Optimization.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.Razor.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Deployment.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\System.Web.WebPages.Razor.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Antlr3.Runtime.pdb
+F:\proyectofinal\programa\liber\liber\liber\bin\Newtonsoft.Json.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\EntityFramework.SqlServer.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Core.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\Microsoft.Owin.Security.Facebook.xml
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Helpers.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Mvc.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Optimization.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.Razor.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.csprojResolveAssemblyReference.cache
+F:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.dll
+F:\proyectofinal\programa\liber\liber\liber\obj\Debug\liber.pdb
+F:\proyectofinal\programa\liber\liber\liber\bin\MySql.Data.dll
