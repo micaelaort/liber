@@ -4,28 +4,45 @@
     ViewBag.Title = "Model";
     Layout = "~/Views/Shared/_mytemplatepagprincipal.cshtml";
 }
+<HEAD>
+
+    <style>
+        body {
+            background: #fdcc52;
+            position: relative;
+            background-position: center;
+        }
+        .Etiqueta {
+        text-align:center;
+        }
+    </style>
+</HEAD>
+
+
 
 
 
 <body>
     <form action=@Url.Action("Model","Home") method="post">
+        <div>
 
-        <label><b>Usuario</b></label> @Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
+            <header class="masthead">
 
-        @Html.TextBoxFor(x => x.user, new { name = " nombre", placeholder = "Ingrese usuario" })
-
-
-        <label><b>Contraseña</b></label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
-        @Html.TextBoxFor(x => x.contraseña, new { name = "contraseña", placeholder = "Ingrese contraseña", type = "password" })
-
-        <button type="submit" name="enviar" onclick="onsave()">Iniciar sesión</button>
-        <input type="checkbox" checked="checked"> Recordarme
-
+                <h3 class="Etiqueta">Iniciar sesión</h3>
+             
+            </header>
+            <div class="EtiquetasValidaciones">
+                <label class="etiquetas">Usuario</label>@Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
+            </div>
+            @Html.TextBoxFor(x => x.user, new { @class = "texto", placeholder = "Ingrese usuario" })
 
 
-        <div class="container">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
-            <span class="psw">Olvide mi <a href="#">contraseña</a></span>
-        </div>
-    </form>
+
+            <div class="EtiquetasValidaciones">
+                <label class="etiquetas">Confirmación de la contraseña</label>@Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
+            </div>
+            @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
+            </div>
+        <button type="submit" onclick="onsave()">Iniciar Sesión</button>
+</form>
 </body>

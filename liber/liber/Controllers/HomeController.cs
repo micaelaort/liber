@@ -77,9 +77,10 @@ namespace liber.Controllers
         public ActionResult Registrar(Usuarios ousuario)
         {
             string consulta ="AgregarUsuario";
-            ousuario.registrar(ousuario,consulta);
+            
             if (ModelState.IsValid)
             {
+                ousuario.registrar(ousuario, consulta);
                 return View("index");
 
             }

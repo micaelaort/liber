@@ -12,88 +12,67 @@
     
     <style>
         body {
-        background-image:url("~/Content/mytemplatepagprincipal/img/bg-cta.jpg") -webkit-linear-gradient(to left, #7b4397, #dc2430);
-        background-size:cover;
+        
         background: #fdcc52;       
-        background: -webkit-linear-gradient(#fdcc52, #fdc539);
-        background: linear-gradient(#fdcc52, #fdc539); 
         position: relative;
         background-position: center;
         }
-        
-        .texto {
-        text-align:center;
-        width:300px;
-        height:45px;
-        margin:0 auto;
-        }
-        
-    
-        
-        .validaciones {
-       color: #f742d0;
-       display:block;
-     
-            }
-
-        .validaciones, .texto {
-        display:inline;
-        }
-        .etiquetas {
+        .Etiqueta {
         text-align:center;
         }
+        
+       
         
     </style>
 </HEAD>
 
 <body>
     <form  action="@Url.Action("Registrar", "Home")" method="post">
-        <div>
-            
-            <h3 class="etiquetas">Registración</h3>
-            <h5 class="etiquetas"><b>Todos los campos son obligatorios</b></h5>
-            <section id="registracion">
-                <div id="textos">
-                    <label class="etiquetas">Nombre</label>@Html.ValidationMessageFor(x => x.nombre, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.nombre, new { @class = "texto", placeholder = "Ingrese nombre" })
+        <header class="masthead">
 
-                    <label class="etiquetas">Apellido</label>@Html.ValidationMessageFor(x => x.apellido, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.apellido, new { @class = "texto", placeholder = "Ingrese apellido" })
-
-
-                    <label class="etiquetas">Usuario</label>@Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.user, new { @class = "texto", placeholder = "Ingrese usuario" })
-
-
-                    <label class="etiquetas">Contraseña</label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
+            <h3 class="Etiqueta">Registración</h3>
+            <h5 class="Etiqueta"><b>Todos los campos son obligatorios</b></h5>
+            </header>
+            <div>
+                
+                    <div id="textos">
+                       
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Nombre</label>@Html.ValidationMessageFor(x => x.nombre, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.nombre, new { @class = "texto", placeholder = "Ingrese nombre" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Apellido</label>@Html.ValidationMessageFor(x => x.apellido, null, new { @class = "validaciones" })
+                         </div>
+                            @Html.TextBoxFor(x => x.apellido, new { @class = "texto", placeholder = "Ingrese apellido" })
 
 
-                    <label class="etiquetas">Confirmación de la contraseña</label>@Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.confirmaciondecontraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Usuario</label>@Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
+                            </div>
+                            @Html.TextBoxFor(x => x.user, new { @class = "texto", placeholder = "Ingrese usuario" })
 
-                    <label class="etiquetas" for="email">Email </label>@Html.ValidationMessageFor(x => x.email, null, new { @class = "validaciones" })
-                    @Html.TextBoxFor(x => x.email, new { type = "email", @class = "texto", placeholder = "Ingrese email" })
-                </div>
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Contraseña</label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
+                         </div>
+                            @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
 
-                <div id="validacion">
-                   
-                    
-                   
-                    
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Confirmación de la contraseña</label>@Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
+                         </div>
+                            @Html.TextBoxFor(x => x.confirmaciondecontraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas" for="email">Email </label>@Html.ValidationMessageFor(x => x.email, null, new { @class = "validaciones" })
+                            </div>
+                            @Html.TextBoxFor(x => x.email, new { type = "email", @class = "texto", placeholder = "Ingrese email" })
+                        </div>
                   
-                    
-                </div>
-          
-            </section>
-         
-           
-            <section>
-                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">Estoy de acuerdo con los términos y condiciones</label>
-            </section>
-            <button type="submit" onclick="onsave()">Registrarse</button>
+               
+                   <br/> <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">Estoy de acuerdo con los términos y condiciones</label>
+               
+                   <br /><button type="submit" onclick="onsave()">Registrarse</button>
 
-        </div>
-    </form>
+            </div>
+</form>
     </BODY>
 </HTML>

@@ -128,7 +128,7 @@ footer ul li a.active,footer ul li a:active,footer ul li a:focus,footer ul li a:
 	padding:15px 45px;font-size:11px
 	}
  
- /* Full-width input fields */
+ /* Full-width input fields 
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -136,17 +136,18 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}*/
 
 /* Set a style for all buttons */
 button {
-    background-color:#f742d0;
+    background-color:#7b4397;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 20%;
+    margin-left:40%;
 }
 
 button:hover {
@@ -160,8 +161,7 @@ button:hover {
     padding: 10px 18px;
     background-color: #f44336;
 }
-
-
+ 
 
 
 
@@ -262,3 +262,37 @@ span.psw {
        width: 100%;
     }
 }
+/*CSS de las views de Model y Registrar*/
+ .texto {
+        text-align:center;
+        width:300px;
+        height:45px;
+        margin:0 auto;
+        -webkit-transform: translateZ(0);
+        }
+        
+    
+        
+        .validaciones {
+       color: #f742d0;
+       margin:10px;
+           
+            }
+        .etiquetas, .validaciones {
+        display:inline;
+        position:static;
+        }
+      
+        .etiquetas {
+        text-align:center;
+         }
+       .EtiquetasValidaciones,.texto {
+        display:block;
+        position:static;
+        }
+        .EtiquetasValidaciones {
+        text-align:center;        
+        }
+		.acceptTerms{
+			float:right;
+		}
