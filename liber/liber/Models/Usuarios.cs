@@ -33,28 +33,62 @@ namespace liber.Models
         [Required(ErrorMessage = "Ingrese la validacón de la contraseña, por favor")]
         public string confirmaciondecontraseña{ get; set; }
 
+        public string modal;      
+
       
-        
 
 
-        public void login (Usuarios user)
+        public bool login (Usuarios user,string consulta)
         {
-            DBHelper Basededatos = new DBHelper();
-            string consulta = "Consulta01";
-            Basededatos.Abrir(consulta);
-            MySqlDataReader lector=Basededatos.Comando.ExecuteReader();
-            while (lector.Read())
+            DBHelper help = new DBHelper();
+            help.Abrir();
+            
+            help.miCommand.CommandText = consulta;
+            MySqlParameter parametro1 = new MySqlParameter("PUser", user.user);
+            help.miCommand.Parameters.Add(parametro1);
+            MySqlParameter parametro2 = new MySqlParameter("PContraseña", user.contraseña);
+            help.miCommand.Parameters.Add(parametro2);
+
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+
+            if (lector.Read())
             {
-                Usuarios ouser = new Usuarios();
-                ouser.user       = lector["user"].ToString();
-                ouser.contraseña = lector["contraseña"].ToString();
+                return true;
             }
-           Basededatos.miConn.Close();
+            help.conn.Close();
+            return false;
+
 
         }
-        
-        public void registrar(Usuarios ouser)
+     
+        public void registrar(Usuarios ouser, string consulta)
         {
+            DBHelper help = new DBHelper();
+            help.AbrirConParametros(consulta);
+
+         
+            MySqlParameter parametro1 = new MySqlParameter("PNombre", ouser.nombre);
+            help.miCommand.Parameters.Add(parametro1);
+
+            MySqlParameter parametro2 = new MySqlParameter("PApellido", ouser.apellido);
+            help.miCommand.Parameters.Add(parametro2);
+
+            MySqlParameter parametro3 = new MySqlParameter("PUser", ouser.user);
+            help.miCommand.Parameters.Add(parametro3);
+
+            MySqlParameter parametro4 = new MySqlParameter("PEmail", ouser.email);
+            help.miCommand.Parameters.Add(parametro4);
+
+            MySqlParameter parametro5 = new MySqlParameter("PContraseña", ouser.contraseña);
+            help.miCommand.Parameters.Add(parametro5);
+
+            MySqlParameter parametro6 = new MySqlParameter("PAdmin", "0");
+            help.miCommand.Parameters.Add(parametro6);
+
+            help.miCommand.ExecuteNonQuery();
+            help.tran.Commit();
+
+
 
         }
     }

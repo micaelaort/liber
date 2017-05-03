@@ -28,27 +28,20 @@
         margin:0 auto;
         }
         
-        .etiquetas,.texto {
-             display: block;
+    
+        
+        .validaciones {
+       color: #f742d0;
+       display:block;
+     
+            }
+
+        .validaciones, .texto {
+        display:inline;
         }
         .etiquetas {
         text-align:center;
         }
-        .validaciones {
-       color: #f742d0;
-       display:block;
-       margin-top:20px;
-            }
-
-         #validacion {
-        display:inline-block;
-        margin:0 auto;
-        float:right;
-        margin-top:-60%;
-        padding:0px;
-        margin:0px;
-        }
-
         
     </style>
 </HEAD>
@@ -61,35 +54,35 @@
             <h5 class="etiquetas"><b>Todos los campos son obligatorios</b></h5>
             <section id="registracion">
                 <div id="textos">
-                    <label class="etiquetas">Nombre</label>
+                    <label class="etiquetas">Nombre</label>@Html.ValidationMessageFor(x => x.nombre, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.nombre, new { @class = "texto", placeholder = "Ingrese nombre" })
 
-                    <label class="etiquetas">Apellido</label>
+                    <label class="etiquetas">Apellido</label>@Html.ValidationMessageFor(x => x.apellido, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.apellido, new { @class = "texto", placeholder = "Ingrese apellido" })
 
 
-                    <label class="etiquetas">Usuario</label>
+                    <label class="etiquetas">Usuario</label>@Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.user, new { @class = "texto", placeholder = "Ingrese usuario" })
 
 
-                    <label class="etiquetas">Contraseña</label>
+                    <label class="etiquetas">Contraseña</label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
 
 
-                    <label class="etiquetas">Confirmación de la contraseña</label>
+                    <label class="etiquetas">Confirmación de la contraseña</label>@Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.confirmaciondecontraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
 
-                    <label class="etiquetas" for="email">Email </label>
+                    <label class="etiquetas" for="email">Email </label>@Html.ValidationMessageFor(x => x.email, null, new { @class = "validaciones" })
                     @Html.TextBoxFor(x => x.email, new { type = "email", @class = "texto", placeholder = "Ingrese email" })
                 </div>
 
                 <div id="validacion">
-                    @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "validaciones" })
-                    @Html.ValidationMessageFor(x => x.apellido, null, new { @class = "validaciones" })
-                    @Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
-                    @Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
-                    @Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
-                    @Html.ValidationMessageFor(x => x.email, null, new { @class = "validaciones" })
+                   
+                    
+                   
+                    
+                  
+                    
                 </div>
           
             </section>

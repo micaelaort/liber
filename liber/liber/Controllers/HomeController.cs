@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.OleDb;
 using liber.Models;
 using System.IO;
+using System.Web.WebPages.Html;
 
 namespace liber.Controllers
 {
@@ -19,17 +20,43 @@ namespace liber.Controllers
         [HttpPost]
         public ActionResult Index(Usuarios Ousuariorecibido)
         {
+            bool login;
             
             string usuario=Ousuariorecibido.user;
             string contra = Ousuariorecibido.contraseña;
-            Ousuariorecibido.login(Ousuariorecibido);
-            return View();
-        }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            string cons = "SeleccionarUsuario";
+            login=Ousuariorecibido.login(Ousuariorecibido,cons);
 
-            return View();
+            //
+
+                return View("Index");
+            
+            
+          
+            
+        }
+        public ActionResult Model()
+        {
+
+            return View("Model");
+        }
+        [HttpPost]
+
+        public ActionResult Model(Usuarios oser)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("index");
+
+            }
+            else
+            {
+                return View("Model");
+            }
+
+
+
+          
         }
 
         public ActionResult Contact()
@@ -49,6 +76,8 @@ namespace liber.Controllers
         [HttpPost]
         public ActionResult Registrar(Usuarios ousuario)
         {
+            string consulta ="AgregarUsuario";
+            ousuario.registrar(ousuario,consulta);
             if (ModelState.IsValid)
             {
                 return View("index");

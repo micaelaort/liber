@@ -1,0 +1,31 @@
+﻿@using liber.Models
+@model Usuarios
+@{
+    ViewBag.Title = "Model";
+    Layout = "~/Views/Shared/_mytemplatepagprincipal.cshtml";
+}
+
+
+
+<body>
+    <form action=@Url.Action("Model","Home") method="post">
+
+        <label><b>Usuario</b></label> @Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
+
+        @Html.TextBoxFor(x => x.user, new { name = " nombre", placeholder = "Ingrese usuario" })
+
+
+        <label><b>Contraseña</b></label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
+        @Html.TextBoxFor(x => x.contraseña, new { name = "contraseña", placeholder = "Ingrese contraseña", type = "password" })
+
+        <button type="submit" name="enviar" onclick="onsave()">Iniciar sesión</button>
+        <input type="checkbox" checked="checked"> Recordarme
+
+
+
+        <div class="container">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+            <span class="psw">Olvide mi <a href="#">contraseña</a></span>
+        </div>
+    </form>
+</body>

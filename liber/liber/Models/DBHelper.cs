@@ -11,55 +11,36 @@ namespace liber.Models
 {
     public class DBHelper
     {
-        public MySqlCommand Comando;
-        public MySqlConnection miConn;
-        //public void Conectar(string consulta)
-        //{
-        //    MySqlConnection Conn = new MySqlConnection("server=localhost;Uid=root; Password=mica;Database=liber;Port=3306");
-        //    Conn.Open();
-        //    MySqlCommand miCommand = new MySqlCommand(consulta, Conn);
-        //    miCommand.CommandType = CommandType.StoredProcedure;
-        //    miCommand.CommandText = consulta;
-        //    MySqlDataReader lector= miCommand.ExecuteReader();
-        //    miCommand.ExecuteNonQuery();
-        //    Conn.Close();
-        //}
-        public static string ConnectionString
+        public MySqlCommand miCommand;
+        public MySqlDataReader Data;
+        public MySqlConnection conn;
+        public MySqlTransaction tran;
+
+        public void Abrir()
         {
-            get
-            {
-                return ConfigurationManager.ConnectionStrings["MySqlConnectionString"].ConnectionString;
-            }
+            conn = new MySqlConnection();
+            string proveedor = "server=127.0.0.1;Database=liber;Uid=root;Password=mica2511;Port=3306";
+            conn.ConnectionString = proveedor;
+            conn.Open();
+            miCommand = conn.CreateCommand();
+            miCommand.CommandType = CommandType.StoredProcedure;
+        }
+        public void AbrirConParametros(string consulta)
+        {
+            conn = new MySqlConnection();
+            string proveedor = "server=127.0.0.1;Database=liber;Uid=root;Password=mica2511;Port=3306";
+            conn.ConnectionString = proveedor;
+            conn.Open();
+            miCommand = new MySqlCommand(consulta,conn,tran);
+            tran = conn.BeginTransaction();
+            miCommand = conn.CreateCommand();
+            miCommand.CommandType = CommandType.StoredProcedure;
+            miCommand.CommandText = consulta;
         }
 
-        public void Abrir(string consulta)
-        {
+
+      
 
 
-            using (MySqlConnection miConn = new MySqlConnection(ConnectionString))
-            {   
-                miConn.Open();
-                MySqlCommand miCommand = new MySqlCommand(consulta, miConn);
-                miCommand.CommandType = CommandType.StoredProcedure;
-                miCommand.CommandText = consulta;
-                miCommand.ExecuteNonQuery();
-                Comando = miConn.CreateCommand();
-
-                //Nos aseguramos de cerrar la conexion
-            }
-        }
-        public static DataTable EjecutarSelect(string select)
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection miConn = new MySqlConnection(ConnectionString))
-            {
-                miConn.Open();
-                MySqlCommand miCommand = new MySqlCommand(select, miConn);
-                MySqlDataAdapter da = new MySqlDataAdapter(miCommand);
-                da.Fill(dt);
-                miConn.Close(); //Nos aseguramos de cerrar la conexion
-            }
-            return dt;
-        }
     }
 }

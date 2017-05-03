@@ -7,7 +7,7 @@
 }
 
 
-<body id="page-top">
+<body id="page-top" ng-app="">
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,50 +40,10 @@
                            
                             
                             @* Empieza el codigo del form modal login *@
-                            
-                            <button class="btn btn-outline btn-xl" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar sesión</button>
-
-                            <div id="id01" class="modal">
-
-                                <form class="modal-content animate" action="@Url.Action("Index", "Home")" method="post">
-                                    <div class="imgcontainer">
-                                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-                                    </div>
-
-                                    <div class="container">
-                                        <label><b>Usuario</b></label>
-                                        
-                                        @Html.TextBoxFor(x =>x.user, new { placeholder="Ingrese usuario" })
-
-
-                                        <label><b>Contraseña</b></label>
-                                        @Html.TextBoxFor(x => x.contraseña, new { placeholder = "Ingrese contraseña", type="password" })
-
-                                        <button type="submit" onclick="onsave()">Iniciar sesión</button>
-                                        <input type="checkbox" checked="checked"> Recordarme
-                                    </div>
-
-                                    <div class="container">
-                                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
-                                        <span class="psw">Olvide mi <a href="#">contraseña</a></span>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <script>
-                        // Get the modal
-                        var modal = document.getElementById('id01');
-
-                                        // When the user clicks anywhere outside of the modal, close it
-                                        window.onclick = function(event) {
-                                            if (event.target == modal) {
-                                            modal.style.display = "none";
-                                        }
-                                        }
-
-                            
-                            </script>
+                            <a href=@Url.Action("Model","Home")
+                                class="btn btn-outline btn-xl" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar sesión</button>
+                             
+                            </a>
 
                             @* Termina el codigo del form modal login *@
                         </div>
