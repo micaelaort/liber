@@ -269,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\imagen\" />
     <Folder Include="Content\mytemplatepagprincipal\css\" />
     <Folder Include="Content\mytemplatepagprincipal\device-mockups\" />
     <Folder Include="Content\mytemplatepagprincipal\img\" />

@@ -46,7 +46,7 @@ namespace liber.Models
             help.miCommand.CommandText = consulta;
             MySqlParameter parametro1 = new MySqlParameter("PUser", user.user);
             help.miCommand.Parameters.Add(parametro1);
-            MySqlParameter parametro2 = new MySqlParameter("PContraseña", user.contraseña);
+            MySqlParameter parametro2 = new MySqlParameter("PPassword", user.contraseña);
             help.miCommand.Parameters.Add(parametro2);
 
             MySqlDataReader lector = help.miCommand.ExecuteReader();
@@ -55,7 +55,7 @@ namespace liber.Models
             {
                 UsuarioBaseDatos = new Usuarios();
                 UsuarioBaseDatos.user = lector["usuario"].ToString();
-                UsuarioBaseDatos.contraseña = lector["contraseña"].ToString();
+                UsuarioBaseDatos.contraseña = lector["password"].ToString();
                 UsuarioBaseDatos.Administrador= (lector["admin"].ToString());
                 
             }
@@ -90,10 +90,10 @@ namespace liber.Models
             MySqlParameter parametro4 = new MySqlParameter("PEmail", ouser.email);
             help.miCommand.Parameters.Add(parametro4);
 
-            MySqlParameter parametro5 = new MySqlParameter("PContraseña", ouser.contraseña);
+            MySqlParameter parametro5 = new MySqlParameter("PPassword", ouser.contraseña);
             help.miCommand.Parameters.Add(parametro5);
 
-            MySqlParameter parametro6 = new MySqlParameter("PAdmin", "0");
+            MySqlParameter parametro6 = new MySqlParameter("PAdmin", "false");
             help.miCommand.Parameters.Add(parametro6);
 
             help.miCommand.ExecuteNonQuery();
@@ -128,6 +128,18 @@ namespace liber.Models
         {
             //Si return true es admin
             if (ouser.Administrador=="true")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean CompararContraseña(Usuarios ouser)
+        {
+            if (ouser.contraseña == ouser.confirmaciondecontraseña )
             {
                 return true;
             }

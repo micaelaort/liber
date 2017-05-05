@@ -13,27 +13,30 @@
     <style>
         body {
         
-        background: #fdcc52;       
-        position: relative;
+      position: relative;
         background-position: center;
+        background-repeat:no-repeat;
+        background-size:100%;
         }
         .Etiqueta {
         text-align:center;
         }
-        
-       
+      
+               
         
     </style>
 </HEAD>
 
-<body>
+<body background="~/content/imagen/login.jpg">
     <form  action="@Url.Action("Registrar", "Home")" method="post">
+       
         <header class="masthead">
 
             <h3 class="Etiqueta">Registración</h3>
             <h5 class="Etiqueta"><b>Todos los campos son obligatorios</b></h5>
             </header>
             <div>
+            <h3>@ViewBag.mensaje</h3>
                 
                     <div id="textos">
                        

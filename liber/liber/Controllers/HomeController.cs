@@ -41,7 +41,7 @@ namespace liber.Controllers
                   
                     if(validaradmin)
                     {
-                        ViewBag.Message = "Ustes es admin";
+                        ViewBag.Message = "Usted es admin";
                         return View("Admin");
                     }
                     else
@@ -52,14 +52,15 @@ namespace liber.Controllers
                         }
                         else
                         {
-                            
-                            return View("Model");
+                    ViewBag.mensaje = " El usuario o contraseña es invalido";
+                    return View("Model");
                         }
 
 
             }
             else
             {
+              
                 return View("Model");
             }
 
@@ -78,14 +79,26 @@ namespace liber.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registrar(Usuarios ousuario)
+        public ActionResult Registrar(Usuarios ouser)
         {
             string consulta ="AgregarUsuario";
             
             if (ModelState.IsValid)
             {
-                ousuario.registrar(ousuario, consulta);
-                return View("index");
+                bool validarcontraseña = ouser.CompararContraseña(ouser);
+
+                            if (validarcontraseña)
+                            {
+                                ouser.registrar(ouser, consulta);
+                                return View("index");
+                            }
+                            else
+                            {
+                    ViewBag.mensaje = "Su contraseña y validacion no coinciden";
+                                 return View("Registrar");
+
+                            }
+               
 
             }
             else

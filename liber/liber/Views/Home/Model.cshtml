@@ -7,14 +7,16 @@
 <HEAD>
 
     <style>
-        body {
-            background: #fdcc52;
-            position: relative;
-            background-position: center;
-        }
-        .Etiqueta {
-        text-align:center;
-        }
+    body {
+       
+        position: relative;
+        background-position: center;
+        background-repeat:no-repeat;
+        background-size:100% ;
+    }
+    .Etiqueta {
+    text-align:center;
+    }
     </style>
 </HEAD>
 
@@ -22,8 +24,9 @@
 
 
 
-<body>
-    <form action=@Url.Action("Model","Home") method="post">
+<body  background="~/content/imagen/login.jpg">  
+    
+      <form action=@Url.Action("Model","Home") method="post">
         <div>
 
             <header class="masthead">
@@ -32,6 +35,7 @@
              
             </header>
             <div class="EtiquetasValidaciones">
+                <h3>@ViewBag.mensaje</h3>
                 <label class="etiquetas">Usuario</label>@Html.ValidationMessageFor(x => x.user, null, new { @class = "validaciones" })
             </div>
             @Html.TextBoxFor(x => x.user, new { @class = "texto", placeholder = "Ingrese usuario" })
@@ -43,6 +47,9 @@
             </div>
             @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
             </div>
+     
         <button type="submit" onclick="onsave()">Iniciar Sesión</button>
 </form>
+
+
 </body>

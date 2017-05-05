@@ -285,14 +285,20 @@ span.psw {
       
         .etiquetas {
         text-align:center;
+		font-weight: bold;
+		margin-top:10%;
          }
        .EtiquetasValidaciones,.texto {
         display:block;
-        position:static;
+      
         }
         .EtiquetasValidaciones {
-        text-align:center;        
+        text-align:center;   
+		margin-top:1%;
         }
 		.acceptTerms{
 			float:right;
 		}
+		  #textos {
+            margin-top:5%;
+        }

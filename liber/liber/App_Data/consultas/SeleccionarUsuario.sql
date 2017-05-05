@@ -1,11 +1,11 @@
 delimiter $$
 create procedure SeleccionarUsuario(
 in PUser       varchar(45), 
-in PContraseña varchar(45)
+in PPassword varchar(45)
 )
 begin
 select  
-usuarios.usuario, usuarios.contraseña ,usuarios.admin
+usuarios.usuario, usuarios.password ,usuarios.admin
  from usuarios 
- where usuario=PUser &&contraseña=PContraseña ;
+ where usuario=PUser && password=PPasswordSeleccionarUsuario ;
 end
