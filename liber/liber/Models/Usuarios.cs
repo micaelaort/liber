@@ -33,12 +33,12 @@ namespace liber.Models
         [Required(ErrorMessage = "Ingrese la validacón de la contraseña, por favor")]
         public string confirmaciondecontraseña{ get; set; }
 
-        public string modal;      
-
+        public Usuarios UsuarioBaseDatos;
+        public string Administrador;
       
 
 
-        public bool login (Usuarios user,string consulta)
+        public Usuarios login (Usuarios user,string consulta)
         {
             DBHelper help = new DBHelper();
             help.Abrir();
@@ -53,10 +53,21 @@ namespace liber.Models
 
             if (lector.Read())
             {
-                return true;
+                UsuarioBaseDatos = new Usuarios();
+                UsuarioBaseDatos.user = lector["usuario"].ToString();
+                UsuarioBaseDatos.contraseña = lector["contraseña"].ToString();
+                UsuarioBaseDatos.Administrador= (lector["admin"].ToString());
+                
+            }
+            else
+            {
+                UsuarioBaseDatos = new Usuarios();
+                UsuarioBaseDatos.user          = "";
+                UsuarioBaseDatos.contraseña    = "";
+                UsuarioBaseDatos.Administrador = "";
             }
             help.conn.Close();
-            return false;
+            return UsuarioBaseDatos;
 
 
         }
@@ -90,6 +101,40 @@ namespace liber.Models
 
 
 
+        }
+        public Boolean ValidarContraseña(Usuarios ouser,Usuarios ouser2)
+        {
+            if (ouser2.contraseña == ouser.contraseña &&  ouser2.contraseña!=" ")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public Boolean ValidarUsuario(Usuarios ouser, Usuarios ouser2)
+        {
+            if (ouser2.user == ouser.user && ouser2.user != " ")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public Boolean ValidarAdmin(Usuarios ouser)
+        {
+            //Si return true es admin
+            if (ouser.Administrador=="true")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

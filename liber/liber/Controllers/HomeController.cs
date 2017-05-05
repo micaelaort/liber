@@ -17,24 +17,7 @@ namespace liber.Controllers
             
             return View();
         }
-        [HttpPost]
-        public ActionResult Index(Usuarios Ousuariorecibido)
-        {
-            bool login;
-            
-            string usuario=Ousuariorecibido.user;
-            string contra = Ousuariorecibido.contraseña;
-            string cons = "SeleccionarUsuario";
-            login=Ousuariorecibido.login(Ousuariorecibido,cons);
-
-            //
-
-                return View("Index");
-            
-            
-          
-            
-        }
+       
         public ActionResult Model()
         {
 
@@ -42,11 +25,37 @@ namespace liber.Controllers
         }
         [HttpPost]
 
-        public ActionResult Model(Usuarios oser)
+        public ActionResult Model(Usuarios ouser)
         {
-            if (ModelState.IsValid)
+            if (ouser.user!=" " && ouser.contraseña!=" ")
             {
-                return View("index");
+                string consulta = "SeleccionarUsuario";
+               Usuarios usuariobase= ouser.login(ouser,consulta);
+                
+                bool validarcontraseña=ouser.ValidarContraseña(ouser, usuariobase);
+                bool validarusuario = ouser.ValidarUsuario(ouser,usuariobase);
+                bool validaradmin = ouser.ValidarAdmin(usuariobase);
+                if (validarcontraseña && validarusuario)
+                {
+                    //agregar if que si es admin haga tal cosa.
+                  
+                    if(validaradmin)
+                    {
+                        ViewBag.Message = "Ustes es admin";
+                        return View("Admin");
+                    }
+                    else
+                    {
+                        return View("index");
+                    }
+
+                        }
+                        else
+                        {
+                            
+                            return View("Model");
+                        }
+
 
             }
             else
@@ -59,12 +68,7 @@ namespace liber.Controllers
           
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
         public ActionResult Registrar()
         {
           
@@ -89,6 +93,11 @@ namespace liber.Controllers
                 return View("Registrar");
             }
            
+        }
+        public ActionResult Admin() {
+
+            
+            return View();
         }
     }
 }

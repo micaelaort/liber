@@ -39,7 +39,7 @@
 
 
             <div class="EtiquetasValidaciones">
-                <label class="etiquetas">Confirmación de la contraseña</label>@Html.ValidationMessageFor(x => x.confirmaciondecontraseña, null, new { @class = "validaciones" })
+                <label class="etiquetas">Contraseña</label>@Html.ValidationMessageFor(x => x.contraseña, null, new { @class = "validaciones" })
             </div>
             @Html.TextBoxFor(x => x.contraseña, new { @class = "texto", placeholder = "Ingrese contraseña", type = "password" })
             </div>
