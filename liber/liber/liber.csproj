@@ -200,6 +200,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Libros.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

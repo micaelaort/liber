@@ -35,12 +35,12 @@ namespace liber.Models
 
         public Usuarios UsuarioBaseDatos;
         public string Administrador;
-      
+        DBHelper help = new DBHelper();
 
 
         public Usuarios login (Usuarios user,string consulta)
         {
-            DBHelper help = new DBHelper();
+           
             help.Abrir();
             
             help.miCommand.CommandText = consulta;
@@ -148,5 +148,7 @@ namespace liber.Models
                 return false;
             }
         }
+
+    
     }
 }

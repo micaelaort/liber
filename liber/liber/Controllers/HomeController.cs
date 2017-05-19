@@ -29,7 +29,7 @@ namespace liber.Controllers
         {
             if (ouser.user!=" " && ouser.contraseña!=" ")
             {
-                string consulta = "SeleccionarUsuario";
+                string consulta = "SeleccionarUsuarioLogin";
                Usuarios usuariobase= ouser.login(ouser,consulta);
                 
                 bool validarcontraseña=ouser.ValidarContraseña(ouser, usuariobase);
