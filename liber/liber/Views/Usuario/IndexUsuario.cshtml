@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "IndexUsuario";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<head>
+
+    	
+</head>
+<body>
+
+  
+
+    <section id="slider">
+        <!--slider-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#slider-carousel" data-slide-to="1"></li>
+                            <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+
+                                <div class="col-sm-6">
+                                    <img src="@Url.Content("~/Content/Usuariotemp/")images/banner/banner1.png" id="img1" class="girl img-responsive" alt="" />
+
+                                </div>
+                            </div>
+                            <div class="item">
+
+                                <div class="col-sm-6">
+                                    <img src="@Url.Content("~/Content/Usuariotemp/")images/banner/banner2.jpg" id="img2" class="girl img-responsive" alt="" />
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+
+                                <div class="col-sm-6">
+                                    <img src="@Url.Content("~/Content/Usuariotemp/")images/banner/banner3.jpg" id="img3" class="girl img-responsive" alt="" />
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section><!--/slider-->
+    <!--SCRIPT DEL SLIDE BOOK-->
+    <script type="text/javascript">
+			$('.carousel slide').bxSlider({
+  auto: true,
+  autoControls: true
+});
+    </script>
+    <!--SCRIPT DEL SLIDE BOOK-->
+
+    
+
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.scrollUp.min.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/price-range.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.prettyPhoto.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/main.js"></script>
+   
+
+</body>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/bootstrap.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/font-awesome.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/prettyPhoto.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/price-range.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/animate.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/main.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/common.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/style2.css" />
+    <!--Conectores del estilo de nav bar circulo-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/component2.css" />
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+            </script>	
+   
+
+</head>
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <!-- El menu con fondo, main.css contiene el estilo-->
+            <div class="component">
+                <h2>Liber</h2>
+                <!-- Start Nav Structure -->
+                <button class="cn-button" id="cn-button">Menu</button>
+                <div class="cn-wrapper" id="cn-wrapper">
+                    <ul>
+                        <li><a href="#"><span>About</span></a></li>
+                        <li><a href="#"><span>Tutorials</span></a></li>
+                        <li><a href="#"><span>Articles</span></a></li>
+                        <li><a href="#"><span>Snippets</span></a></li>
+                        <li><a href="#"><span>Plugins</span></a></li>
+                        <li><a href="#"><span>Contact</span></a></li>
+                        <li><a href="#"><span>Follow</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /container -->
+            <script src="@Url.Content("~/Content/Usuariotemp/")js/polyfills.js"></script>
+            <script src="@Url.Content("~/Content/Usuariotemp/")js/demo2.js"></script>
+        
+        </div>
+       
+     
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="col-sm-3">
+
+                            <!--SEARCH BOX
+                            <div class="search_box pull-right">
+                                <input type="text" placeholder="Search"/>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div><!--/header-bottom-->
+        </div>
+    </header><!--/header-->
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>

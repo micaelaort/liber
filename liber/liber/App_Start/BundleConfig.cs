@@ -26,6 +26,11 @@ namespace liber
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            var coreScripts = new ScriptBundle("~/bundles/coreAssets.js")
+          .Include("~/scripts/jquery.js");
+
+            var coreStyles = new StyleBundle("~/bundles/coreStyles.css")
+                .Include("~/css/bootstrap.css");
         }
     }
 }

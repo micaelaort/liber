@@ -23,12 +23,12 @@ namespace liber.Models
         public string editorial {get;set;}
         public string reseña{get;set;}
         public int puntacion {get;set;}
-        public string genero {get;set;
+        public string genero { get; set; }
         public int id { get; set; }
 
 
         DBHelper help = new DBHelper();
-        Dictionary<int, Libros> dicLibros = new Dictionary<int, Libros>;
+        Dictionary<int, Libros> dicLibros = new Dictionary<int, Libros>();
 
         public void SeleccionarLibrosUsuario(Usuarios ouser, string consulta)
         {
