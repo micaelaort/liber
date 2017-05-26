@@ -16,7 +16,7 @@ namespace liber.Models
         public MySqlConnection conn;
         public MySqlTransaction tran;
 
-        public void Abrir()
+        public void Abrir(string consulta)
         {
             conn = new MySqlConnection();
             string proveedor = "server=127.0.0.1;Database=liber;Uid=root;Password=mica2511;Port=3306";
@@ -24,6 +24,7 @@ namespace liber.Models
             conn.Open();
             miCommand = conn.CreateCommand();
             miCommand.CommandType = CommandType.StoredProcedure;
+            miCommand.CommandText = consulta;
         }
         public void AbrirConParametros(string consulta)
         {

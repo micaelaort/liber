@@ -42,11 +42,11 @@ namespace liber.Controllers
                     if(validaradmin)
                     {
                         ViewBag.Message = "Usted es admin";
-                        return View("Admin");
+                        return RedirectToAction("IndexAdmin","Admin");
                     }
                     else
                     {
-                        return View("index");
+                        return RedirectToAction("IndexUsuario", "Usuario");
                     }
 
                         }

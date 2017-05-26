@@ -41,9 +41,9 @@ namespace liber.Models
         public Usuarios login (Usuarios user,string consulta)
         {
            
-            help.Abrir();
+            help.Abrir(consulta);
             
-            help.miCommand.CommandText = consulta;
+            
             MySqlParameter parametro1 = new MySqlParameter("PUser", user.user);
             help.miCommand.Parameters.Add(parametro1);
             MySqlParameter parametro2 = new MySqlParameter("PPassword", user.contraseña);

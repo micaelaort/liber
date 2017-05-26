@@ -1,0 +1,58 @@
+﻿
+@using liber.Models
+@model Banners
+@{
+    ViewBag.Title = "AgregarBanner";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>AgregarBanner</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Blank Page
+                    <small>Subheading</small>
+                </h1>
+                 class="breadcrumb">
+                    
+                        <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+
+                    <form action=@Url.Action("AgregarBanner","Admin") method="post" id="FormBanner">
+                        <div>
+
+                            <header class="masthead">
+
+                                <h3 class="Etiqueta">Iniciar sesión</h3>
+
+                            </header>
+                            <div class="EtiquetasValidaciones">
+                                <h3>@ViewBag.mensaje</h3>
+                                <label class="etiquetas">Titulo</label>@Html.ValidationMessageFor(x => x.Titulo, null, new { @class = "validaciones" })
+                            </div>
+                            @Html.TextBoxFor(x => x.Titulo, new { @class = "texto", placeholder = "Ingrese titulo" })
+
+
+
+                            <div class="EtiquetasValidaciones">
+                                <label class="etiquetas">Imagen</label>@Html.ValidationMessageFor(x => x.Imagen, null, new { @class = "validaciones" })
+                            </div>
+                            @Html.TextBoxFor(x => x.Imagen, new { @class = "texto", placeholder = "Ingrese imagen", type = "password" })
+                        </div>
+
+                        <button type="submit" onclick="onsave()">Iniciar Sesión</button>
+                    </form>
+             
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+   
