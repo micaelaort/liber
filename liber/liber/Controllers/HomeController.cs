@@ -46,7 +46,7 @@ namespace liber.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("IndexUsuario", "Usuario", new { @usuarionombre = ouser.nombre});
+                        return RedirectToAction("IndexUsuario", "Usuario", usuariobase);
                     }
 
                         }

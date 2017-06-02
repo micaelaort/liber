@@ -31,12 +31,12 @@ namespace liber.Models
         DBHelper help = new DBHelper();
         Dictionary<int, Libros> dicLibros = new Dictionary<int, Libros>();
         List<Libros> listLibro = new List<Libros>();
-        public List<Libros> SeleccionarLibrosUsuario(string usuarionombre, string consulta)
+        public List<Libros> SeleccionarLibrosUsuario(int iduser, string consulta)
         {
 
             help.AbrirConParametros(consulta);
             /*Le mando el nombreuser y me devuelve 5 o menos libros del usario*/
-            MySqlParameter parametro1 = new MySqlParameter("PNombre", usuarionombre);
+            MySqlParameter parametro1 = new MySqlParameter("PID", iduser);
             help.miCommand.Parameters.Add(parametro1);
             /*Me devuelve los libros del usuario*/
             MySqlDataReader lector = help.miCommand.ExecuteReader();

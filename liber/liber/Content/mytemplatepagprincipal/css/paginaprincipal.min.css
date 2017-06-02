@@ -116,11 +116,12 @@ footer ul li a{
 footer ul li a.active,footer ul li a:active,footer ul li a:focus,footer ul li a:hover{
 	text-decoration:none}
 .bg-primary{
-<<<<<<< HEAD
-	background:linear-gradient(#C3CAD2,#C3CAD2)}
-=======
-	background:#c5c9d2;background:-webkit-linear-gradient(#c5c9d2,#c5c9d2);background:linear-gradient(#c5c9d2,#c5c9d2)}
->>>>>>> efdfd2a09a848dcdb4421b2d4cd36e94b693db2a
+
+	background:linear-gradient(#c5c9d2,#c5c9d2);
+
+background:-webkit-linear-gradient(#c5c9d2,#c5c9d2);
+background:linear-gradient(#c5c9d2,#c5c9d2)}
+
 .text-primary{
 	color:#53A229}
 .no-gutter>[class*=col-]{

@@ -8,9 +8,11 @@
 
 <head>
     <style>
-        .estrellas{
-            width:15%;
+
+        .estrellas2 {
+        width:13%;
         }
+
     </style>
     	
 </head>
@@ -24,23 +26,86 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
+                  
 
                         <div class="carousel-inner">
                             <div class="item active">
 
                                 <div class="col-sm-6">
 
-                            @{foreach (Banners banner in (ViewBag.listBanner))
-                                {
-                                    <img src="@Url.Content("~/Content/Admintemp/banner/")@banner.Imagen" id="img1" class="girl img-responsive" alt="" />
-                                }
-                                }
+                                    
+
+                                     @{
+
+
+
+                                         foreach (Banners item in (ViewBag.listBanner))
+                                         {
+                                            
+                                            <div class="container-fluid bg-1 text-center">
+                                                
+                                                <div class="container">
+                                                    <div class="inner">
+
+                                                    </div>
+                                                    <div class="ibox-content ">
+                                                        <div class="carousel slide" id="carousel2">
+                                                            <ol class="carousel-indicators">
+                                                                @{int j = -1;
+                                                                        List<Banners> lista = ViewBag.listBanner;
+                                                                        for ( j = -1; j < lista.Count(); j++)
+                                                                        {
+                                                                            <li data-slide-to="@(j++)" data-target="#carousel2" class="@(j == 0 ? "active" : "")"></li>
+                                                                        }
+
+
+
+                                                                    }
+                                                                
+                                                            </ol>
+                                                            <div class="carousel-inner">
+                                                                @{var isFirst = true;
+                                                                    
+                                                                    for (j = 0; j < lista.Count() ; j++)
+                                                                    {
+                                                                        <div class="item @(isFirst ? "active" : "")">
+                                                                            @(isFirst = false)
+                                                                            <img alt="image" class="img-responsive" src="@Url.Content("~/Content/Admintemp/banner/")@item.Imagen" style="height:400px;width:500px">
+
+                                                                            <div class="carousel-caption">
+                                                                                
+                                                                            </div>
+                                                                        </div>
+
+                                                                    }
+                                                                }
+
+
+
+                                                            </div>
+                                                            <a data-slide="prev" href="#carousel2" class="left carousel-control">
+                                                                <span class="icon-prev"></span>
+                                                            </a>
+                                                            <a data-slide="next" href="#carousel2" class="right carousel-control">
+                                                                <span class="icon-next"></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                                                        }
+                                                                     }
+
+
+
+
+                                                </div>
+
+
                                 </div>
                             </div>
                           
@@ -100,11 +165,11 @@
 
                         case "2":
                          
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
                            
 
                             break;

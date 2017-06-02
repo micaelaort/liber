@@ -33,6 +33,8 @@ namespace liber.Models
         [Required(ErrorMessage = "Ingrese la validacón de la contraseña, por favor")]
         public string confirmaciondecontraseña{ get; set; }
 
+        public int id { get; set; }
+
         public Usuarios UsuarioBaseDatos;
         public string Administrador;
         DBHelper help = new DBHelper();
@@ -57,6 +59,7 @@ namespace liber.Models
                 UsuarioBaseDatos.user = lector["usuario"].ToString();
                 UsuarioBaseDatos.contraseña = lector["password"].ToString();
                 UsuarioBaseDatos.Administrador= (lector["admin"].ToString());
+                UsuarioBaseDatos.id = Convert.ToInt32(lector["idUsuario"]);
                 
             }
             else
@@ -65,6 +68,7 @@ namespace liber.Models
                 UsuarioBaseDatos.user          = "";
                 UsuarioBaseDatos.contraseña    = "";
                 UsuarioBaseDatos.Administrador = "";
+                UsuarioBaseDatos.id            =0;
             }
             help.conn.Close();
             return UsuarioBaseDatos;

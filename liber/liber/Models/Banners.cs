@@ -176,5 +176,31 @@ namespace liber.Models
         }
 
 
+        public void ValidaFechaExpiracion(List<Banners> listadebanners)
+        {
+            DateTime ahora = DateTime.Today;
+            for (int i = 0; i < listadebanners.Count(); i++)
+            {
+
+            
+                Banners banners = listadebanners[i];
+                banners.dtFechaFinal = Convert.ToDateTime(banners.FechaFinal);
+
+                if (ahora > banners.dtFechaFinal)
+                {
+                    string consulta = "EliminarBanner";
+                    banners.EliminarBanner(consulta,banners.Id);
+
+                }
+
+                              
+                
+            //return banner;
+        }
+
+
+    }
+
+
     }    
 }

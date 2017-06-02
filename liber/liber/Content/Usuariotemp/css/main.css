@@ -896,9 +896,14 @@ ul.sub-menu {
 
 #slider {
   padding-bottom: 45px;
-  border-bottom:#afafaf 3px solid;
+  border-bottom:#afafaf 6px solid;
 }
-
+#libros {
+        background-color: #8F6AB1;
+}
+   .estrellas{
+            width:15%;
+        }
 .carousel-indicators li {
   background: #C4C4BE;
 }
