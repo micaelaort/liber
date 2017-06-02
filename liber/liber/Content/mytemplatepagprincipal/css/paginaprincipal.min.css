@@ -30,7 +30,11 @@
 	 #mainNav{background-color:rgba(0, 0, 0, 0.5);border-color:transparent}#mainNav .navbar-brand{color:fade(white,70%)}#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:#fff}#mainNav .navbar-nav>li>a,#mainNav .navbar-nav>li>a:focus{color:rgba(255,255,255,.7)}#mainNav .navbar-nav>li>a:focus:hover,#mainNav .navbar-nav>li>a:hover{color:#fff}#mainNav.navbar-shrink{background-color:#fff;border-color:rgba(34,34,34,.1)}#mainNav.navbar-shrink .navbar-brand{color:#222}#mainNav.navbar-shrink .navbar-brand:focus,#mainNav.navbar-shrink .navbar-brand:hover{color:#53A229}#mainNav.navbar-shrink .navbar-nav>li>a,#mainNav.navbar-shrink .navbar-nav>li>a:focus{color:#222}#mainNav.navbar-shrink .navbar-nav>li>a:focus:hover,#mainNav.navbar-shrink .navbar-nav>li>a:hover{color:#53A229}}
 
 	 header.masthead{
+<<<<<<< HEAD
 	position:relative;width:100%;min-height:auto;overflow-y:hidden;background:url(../img/bg-pattern.png),#12B99E;background:url(../img/bg-pattern.png),-webkit-linear-gradient(to left,#12B99E,#96E9D2);background:url(../img/bg-pattern.png),linear-gradient(to left,#12B99E,#96E9D2);color:#fff; z-index:2;}
+=======
+	position:relative;width:100%;min-height:auto;overflow-y:hidden;background:url(../img/bg-pattern2.png),#7b4397;background:url(../img/bg-pattern.png),-webkit-linear-gradient(to left,#14b89f,#);background:url(../img/bg-pattern.png),linear-gradient(to left,#15b79f,#96e8d2);color:#878787; z-index:2;}
+>>>>>>> efdfd2a09a848dcdb4421b2d4cd36e94b693db2a
 header.masthead .header-content{text-align:center;padding:150px 0 50px;position:relative}
 header.masthead .header-content .header-content-inner{position:relative;max-width:500px;margin:0 auto}
 header.masthead .header-content .header-content-inner h1{margin-top:0;margin-bottom:30px;font-size:30px}
@@ -112,7 +116,11 @@ footer ul li a{
 footer ul li a.active,footer ul li a:active,footer ul li a:focus,footer ul li a:hover{
 	text-decoration:none}
 .bg-primary{
+<<<<<<< HEAD
 	background:linear-gradient(#C3CAD2,#C3CAD2)}
+=======
+	background:#c5c9d2;background:-webkit-linear-gradient(#c5c9d2,#c5c9d2);background:linear-gradient(#c5c9d2,#c5c9d2)}
+>>>>>>> efdfd2a09a848dcdb4421b2d4cd36e94b693db2a
 .text-primary{
 	color:#53A229}
 .no-gutter>[class*=col-]{
