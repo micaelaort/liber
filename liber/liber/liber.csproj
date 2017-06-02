@@ -293,6 +293,12 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\Admintemp\banner1.png" />
+    <Content Include="Content\Admintemp\banner10.png" />
+    <Content Include="Content\Admintemp\banner13.png" />
+    <Content Include="Content\Admintemp\banner2.png" />
+    <Content Include="Content\Admintemp\banner5.png" />
+    <Content Include="Content\Admintemp\banner6.png" />
     <Content Include="Content\Admintemp\css\bootstrap-rtl.css" />
     <Content Include="Content\Admintemp\css\bootstrap-rtl.min.css" />
     <Content Include="Content\Admintemp\css\bootstrap.css" />
@@ -526,6 +532,13 @@
     <Content Include="Content\Usuariotemp\images\home\sale.png" />
     <Content Include="Content\Usuariotemp\images\home\searchicon.png" />
     <Content Include="Content\Usuariotemp\images\home\shipping.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\cazadoresdesombras.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\enllamas.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\estrellablanca.png" />
+    <Content Include="Content\Usuariotemp\images\libros\estrellacolor.png" />
+    <Content Include="Content\Usuariotemp\images\libros\hermosodesastre.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\mataraunruisenor.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\orgulloyprejuicio.jpg" />
     <Content Include="Content\Usuariotemp\images\product-details\1.jpg" />
     <Content Include="Content\Usuariotemp\images\product-details\new.jpg" />
     <Content Include="Content\Usuariotemp\images\product-details\rating.png" />
@@ -953,9 +966,11 @@
     <Content Include="Views\Admin\Banners.cshtml" />
     <Content Include="Views\Admin\EliminarBanner.cshtml" />
     <Content Include="Views\Admin\AgregarBanner.cshtml" />
+    <Content Include="Views\Admin\ModificarBanner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Admintemp\banner\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

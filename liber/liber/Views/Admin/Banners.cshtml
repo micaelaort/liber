@@ -46,17 +46,22 @@
                                 @*
     como hacer que aparezca un objeto de una clase en una tabla*@
                                     
-                                    @{foreach (Banners banner in (ViewBag.dicBanner))
+                                    @{foreach (Banners banner in (ViewBag.listBanner))
                                         {
                                     <tr class="fila">
 
                                         <td>@banner.Titulo</td>
-                                        <td>@banner.Imagen</td>
+
+                                        <td>
+                                        <img src="@Url.Content("~/Content/Admintemp/banner/")@banner.Imagen" height="100" width="75" /></td>
+  
                                         <td>@banner.FechaInicio</td>
                                         <td>@banner.FechaFinal</td>
-
-                                        @Html.ActionLink("Modificar", "ModificarSucursal", "Resto", new { idsucursal = @banner.Id }, null)
-                                        @Html.ActionLink("Eliminar", "EliminarSucursal", "Resto", new   { idsucursal = @banner.Id }, null) 
+                                        <td>
+                                            <!--lo que ve el usuario/view/controller/parametro-->
+                                            @Html.ActionLink("Modificar", "ModificarBanner", "Admin", new { idbanner = @banner.Id }, null)
+                                            @Html.ActionLink("Eliminar", "EliminarBanner", "Admin", new { idbanner = @banner.Id }, null)
+                                        </td>
                                     </tr>
                                      }
                                     } 

@@ -1,0 +1,86 @@
+﻿@using liber.Models
+@model Banners
+@{
+    ViewBag.Title = "ModificarBanner";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>ModificarBanner</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Modificar  Banners
+
+                </h1>
+
+
+                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+
+
+
+                <div id="FormBanner">
+                    @using (@Html.BeginForm("ModificarBanner", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.Label("Nombre")
+                        @Html.TextBoxFor(x => x.Titulo) <br />
+                      
+                        @Html.Label("Imagen")
+                        <img height="100" width="75" src="~/Content/@Model.Imagen" />
+                        @Html.TextBoxFor(x => x.Imagen, new { type = "file" })<br />
+                        @Html.TextBoxFor(x => x.dtFechaInicio, "{0:yyyy-MM-dd}", new { Value = "@Model.dtFechaInicio", type = "date", @class = "texto" })
+
+                        @Html.TextBoxFor(x => x.dtFechaFinal, "{0:yyyy-MM-dd}", new { type = "date", @class = "texto" })
+                        <input type="submit" value="modificar banner" /><br />
+                    }
+                    @*@using (Html.BeginForm("ModificarBanner", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                    {
+                        <header class="masthead"></header>
+                        <div class="EtiquetasValidaciones">
+                            <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                            <label class="etiquetas">Titulo</label>@Html.ValidationMessageFor(x => x.Titulo, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.Titulo, new { @class = "texto", placeholder = "Ingrese titulo" })
+
+
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Imagen</label>
+                        </div>
+                        <img height="100" width="75" src="@Url.Content("~/Content/Admintemp/banner/")@Model.Imagen" />
+                        @Html.TextBoxFor(x => x.Imagen, new { type = "file", @class = "texto" })
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">fecha de inicio</label>@Html.ValidationMessageFor(x => x.FechaInicio, null, new { @class = "validaciones" })
+                        </div>
+                      
+                        @Html.TextBoxFor(x => x.dtFechaInicio, "{0:yyyy-MM-dd}", new { Value= "@Model.dtFechaInicio", type = "date", @class = "texto"})
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Fecha final</label>@Html.ValidationMessageFor(x => x.FechaFinal, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.dtFechaFinal, "{0:yyyy-MM-dd}", new { type = "date", @class = "texto"})
+
+                        <button type="submit" onclick="onsave()">Modificar Banner</button>
+
+                    }*@
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+
+
