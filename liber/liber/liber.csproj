@@ -448,9 +448,12 @@
     <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="Content\mytemplatepagprincipal\vendor\tether\tether.js" />
     <Content Include="Content\mytemplatepagprincipal\vendor\tether\tether.min.js" />
+    <Content Include="Content\search.png" />
     <Content Include="Content\Usuariotemp\css\animate.css" />
     <Content Include="Content\Usuariotemp\css\bootstrap.min.css" />
+    <Content Include="Content\Usuariotemp\css\buscar.css" />
     <Content Include="Content\Usuariotemp\css\common.css" />
+    <Content Include="Content\Usuariotemp\css\demobuscar.css" />
     <Content Include="Content\Usuariotemp\css\font-awesome.min.css" />
     <Content Include="Content\Usuariotemp\css\main.css" />
     <Content Include="Content\Usuariotemp\css\normalize.css" />
@@ -559,6 +562,7 @@
     <Content Include="Content\Usuariotemp\js\contact.js" />
     <Content Include="Content\Usuariotemp\js\demo1.js" />
     <Content Include="Content\Usuariotemp\js\demo2.js" />
+    <Content Include="Content\Usuariotemp\js\demo9.js" />
     <Content Include="Content\Usuariotemp\js\gmaps.js" />
     <Content Include="Content\Usuariotemp\js\html5shiv.js" />
     <Content Include="Content\Usuariotemp\js\jquery.js" />
@@ -967,6 +971,7 @@
     <Content Include="Views\Admin\EliminarBanner.cshtml" />
     <Content Include="Views\Admin\AgregarBanner.cshtml" />
     <Content Include="Views\Admin\ModificarBanner.cshtml" />
+    <Content Include="Views\Usuario\search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

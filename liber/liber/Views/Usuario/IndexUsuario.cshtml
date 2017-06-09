@@ -18,104 +18,88 @@
 </head>
 <body>
 
-  
 
-    <section id="slider">
-        <!--slider-->
+    @* Adentro del search *@
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                  
-
-                        <div class="carousel-inner">
-                            <div class="item active">
-
-                                <div class="col-sm-6">
-
-                                    
-
-                                     @{
+   
 
 
-
-                                         foreach (Banners item in (ViewBag.listBanner))
-                                         {
-                                            
-                                            <div class="container-fluid bg-1 text-center">
-                                                
-                                                <div class="container">
-                                                    <div class="inner">
-
-                                                    </div>
-                                                    <div class="ibox-content ">
-                                                        <div class="carousel slide" id="carousel2">
-                                                            <ol class="carousel-indicators">
-                                                                @{int j = -1;
-                                                                        List<Banners> lista = ViewBag.listBanner;
-                                                                        for ( j = -1; j < lista.Count(); j++)
-                                                                        {
-                                                                            <li data-slide-to="@(j++)" data-target="#carousel2" class="@(j == 0 ? "active" : "")"></li>
-                                                                        }
-
-
-
-                                                                    }
-                                                                
-                                                            </ol>
-                                                            <div class="carousel-inner">
-                                                                @{var isFirst = true;
-                                                                    
-                                                                    for (j = 0; j < lista.Count() ; j++)
-                                                                    {
-                                                                        <div class="item @(isFirst ? "active" : "")">
-                                                                            @(isFirst = false)
-                                                                            <img alt="image" class="img-responsive" src="@Url.Content("~/Content/Admintemp/banner/")@item.Imagen" style="height:400px;width:500px">
-
-                                                                            <div class="carousel-caption">
-                                                                                
-                                                                            </div>
-                                                                        </div>
-
-                                                                    }
-                                                                }
+    <div class="search">
+       
+        <div class="search__inner search__inner--up">
+            <form class="search__form" action="">
+                <input class="search__input" name="search" type="search" placeholder="Buscar" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                <button>Buscar</button>
+                <span class="search__info">Hit enter to search or ESC to close</span>
+            </form>
+        </div>
+        <div class="search__inner search__inner--down">
+            <div class="search__related">
+                <div class="search__suggestion">
+                    <h3>Libros sugeridos</h3>
+                    <p>#drone #funny #catgif #broken #lost #hilarious #good #red #blue #nono #why #yes #yesyes #aliens #green</p>
+                </div>
+                <div class="search__suggestion">
+                    <h3>Autores sugeridos</h3>
+                    <p>#broken #lost #good #red #funny #hilarious #catgif #blue #nono #why #yes #yesyes #aliens #green #drone</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- /search -->
+    @* Adentro del search *@
 
 
+        <section id="slider">
+            <!--slider-->
 
-                                                            </div>
-                                                            <a data-slide="prev" href="#carousel2" class="left carousel-control">
-                                                                <span class="icon-prev"></span>
-                                                            </a>
-                                                            <a data-slide="next" href="#carousel2" class="right carousel-control">
-                                                                <span class="icon-next"></span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @{
+                                    var activo = "active";
+                                    var cont = 0;
+                                    foreach (Banners UnBanner in ViewBag.listBanner)
+                                    {
+                                        <li data-target="#slider-carousel" data-slide-to="@cont"
+                                            @if (activo == "active") { @: class="Active"
+                                                                                        activo = ""; }>
+                                        </li>
+
+                                        cont++;
+                                    }
+                                }
+                            </ol>
+
+                            <div class="carousel-inner">
+                                @{
+                                    activo = "active";
+                                    cont = 1;
+                                    foreach (Banners UnBanner in ViewBag.listBanner)
+                                    {
+                                        <div class="item @activo">
+                                            <div class="col-sm-6">
+                                                <img src="@Url.Content("~/Content/Admintemp/banner/")@UnBanner.Imagen" id="img@cont" class="girl img-responsive img" alt="" />
                                             </div>
+                                            @{
+                                                cont++;
+                                                activo = "";
+                                            }
+                                        </div>
+                                                }
+                                }
 
-
-
-
-                                                                        }
-                                                                     }
-
-
-
-
-                                                </div>
-
-
-                                </div>
                             </div>
-                          
 
-                           
+
+
+
+
 
                         </div>
 
-                        <a href.
-                           ="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <a href.="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>
                         </a>
                         <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
@@ -124,93 +108,93 @@
                     </div>
 
                 </div>
+
             </div>
-        </div>
 
-    </section><!--/slider-->
+        </section><!--/slider-->
 
-    <section id="libros">
-        @*Lista de libros que contenga una minilista con detalles del libro*@
-        
-        <table>
+        <section id="libros">
+            @*Lista de libros que contenga una minilista con detalles del libro*@
 
+            <table>
 
 
-            @{
-                <tr class="fila">
-                    
-    @foreach (Libros libros in (ViewBag.listLibro))
-    {
 
-            <td>
-                <ul>
-                   <li> 
-                    <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libros.imagen" height="200" width="150" />
-                   </li>
-                   <li> @libros.titulo          </li>
-                   <li> @libros.autor           </li>
-                     <li>
-                     @switch(libros.puntacion.ToString())
-                    {
-                        case "1":
-                         
-                             <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                             <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                             <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                             <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                             <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />                   
-                         
+                @{
+                    <tr class="fila">
 
-                            break;
+                        @foreach (Libros libros in (ViewBag.listLibro))
+                        {
 
-                        case "2":
-                         
-                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                           
+                            <td>
+                                <ul>
+                                    <li>
+                                        <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libros.imagen" height="200" width="150" />
+                                    </li>
+                                    <li> @libros.titulo          </li>
+                                    <li> @libros.autor           </li>
+                                    <li>
+                                        @switch (libros.puntacion.ToString())
+                                        {
+                                            case "1":
 
-                            break;
-
-                        case "3":
-                           
-                                <img class="estrellas"  src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas"  src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas"  src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas"  src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                                <img class="estrellas"  src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
-                         
-                            break;
-                        case "4":
-                            
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
 
 
-                            break;
-                        case "5":
-                           
-                                <img  class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img  class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img  class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img  class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
-                                <img  class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                break;
+
+                                            case "2":
+
+                                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
 
 
-                                break;
-                                }
-                            </li>
+                                                break;
+
+                                            case "3":
+
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+
+                                                break;
+                                            case "4":
+
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
 
 
-                </ul>
+                                                break;
+                                            case "5":
+
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                                <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
 
 
-            </td>
+                                                break;
+                                        }
+                                    </li>
+
+
+                                </ul>
+
+
+                            </td>
 
 
 
@@ -219,28 +203,20 @@
                         }
 
 
-                </tr>
+                    </tr>
 
-            }
-        </table>
-    </section>
-    <!--SCRIPT DEL SLIDE BOOK-->
-    <script type="text/javascript">
-			$('.carousel slide').bxSlider({
-                    auto: true,
-  autoControls: true
-});
-    </script>
-    <!--SCRIPT DEL SLIDE BOOK-->
+                }
+            </table>
+        </section>
+        <!--SCRIPT DEL SLIDE BOOK-->
+        <script type="text/javascript">
+            $('.carousel slide').bxSlider({
+                auto: true,
+                autoControls: true
+            });
+        </script>
+        <!--SCRIPT DEL SLIDE BOOK-->
+  
 
-    
-
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.js"></script>
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/bootstrap.min.js"></script>
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.scrollUp.min.js"></script>
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/price-range.js"></script>
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.prettyPhoto.js"></script>
-    <script src="@Url.Content("~/Content/Usuariotemp/")js/main.js"></script>
-   
 
 </body>

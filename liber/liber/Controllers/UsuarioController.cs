@@ -37,5 +37,9 @@ namespace liber.Controllers
         {
             return View();
         }
+        public ActionResult search()
+        {
+            return View();
+        }
     }
 }
