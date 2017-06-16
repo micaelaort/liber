@@ -213,6 +213,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibroController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -503,6 +504,7 @@
     <Content Include="Content\Usuariotemp\images\Eventos\7.png" />
     <Content Include="Content\Usuariotemp\images\Eventos\8.png" />
     <Content Include="Content\Usuariotemp\images\Eventos\9.png" />
+    <Content Include="Content\Usuariotemp\images\home.png" />
     <Content Include="Content\Usuariotemp\images\home\bg_border.png" />
     <Content Include="Content\Usuariotemp\images\home\gallery1.jpg" />
     <Content Include="Content\Usuariotemp\images\home\gallery2.jpg" />
@@ -972,6 +974,9 @@
     <Content Include="Views\Admin\AgregarBanner.cshtml" />
     <Content Include="Views\Admin\ModificarBanner.cshtml" />
     <Content Include="Views\Usuario\search.cshtml" />
+    <Content Include="Views\Libro\DetallesLibro.cshtml" />
+    <Content Include="Views\Libro\ListadoLibroEncontrado.cshtml" />
+    <Content Include="Views\Libro\ListadoLibroNoEncontrado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

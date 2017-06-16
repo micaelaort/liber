@@ -1,0 +1,48 @@
+﻿@using liber.Models
+@model Libros
+@{
+    ViewBag.Title = "ListadoLibroNoEncontrado";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>ListadoLibroNoEncontrado</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Genero</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        
+              <tr class="fila">
+                
+                @{foreach (Libros libro in (ViewBag.listlibro))
+                    {
+
+
+                       <td>@libro.titulo</td>
+
+                        <td>
+                            @*<img src="@Url.Content("~/Content/Admintemp/libro/")@libro." height="100" width="75" />*@
+                        </td>
+
+
+                        <td>
+                            <!--lo que ve el usuario/view/controller/parametro-->
+
+
+
+                        </td>
+
+                        }
+                      
+
+                        }
+                    </tr>
+            @Html.ActionLink("Ver más", "Vermas", "Libro", new { vermas = "Genero1" }, null)
+        </tbody>
+    </table>
+</div>

@@ -60,9 +60,13 @@
 }
 
 .search__form {
-	width: 75%;
+	
 	max-width: 900px;
-	margin: 0 auto;
+    width: 40%;
+    margin-right: 56%;
+    margin-top: 28%;
+    background-color:#015249;
+
 }
 
 .search__input {
@@ -115,12 +119,27 @@
 }
 
 .search__related {
-	display: flex;
+	
 	width: 75%;
 	max-width: 900px;
 	pointer-events: none;
+    margin-left: 55%;
+}
+#LibrosSugeridos {
+    margin-top: -66%;
+    width: 50%;
+    height: 50%;
+    /*margin-left: 15%;*/
 }
 
+#AutoresSugeridos {
+    margin-right: 69%;
+    padding: 0px;
+    margin-top: 34%;
+}
+#Contenedor {
+display:inline;
+}
 .search__suggestion {
 	width: 50%;
 	padding: 0 1em 0 0;
@@ -128,7 +147,7 @@
 }
 
 .search__suggestion:last-child {
-	padding: 0 0 0 1em;
+	padding: 0 0 0 0;
 }
 
 .search__suggestion h3 {
@@ -138,8 +157,8 @@
 
 .search__suggestion h3::before {
 	content: '\21FE';
-	display: inline-block;
-	padding: 0 0.5em 0 0;
+	/*display: inline-block;
+	padding: 0 0.5em 0 0;*/
 }
 
 .search__suggestion p {

@@ -104,7 +104,7 @@ a#scrollUp i{
 	border: none;
     border-radius: 50%;
 	background-color: #fff;
-	color: #8F6AB1;
+	color: #015249;
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.5em;
@@ -203,9 +203,9 @@ a#scrollUp i{
 	height: 14.5em;
 	border-radius: 50%;
 	background: #ABD716;
-	background: -webkit-radial-gradient(transparent 35%, #8F6AB1 35%);
-	background: -moz-radial-gradient(transparent 35%, #8F6AB1 35%);
-	background: radial-gradient(transparent 35%, #8F6AB1 35%);
+	background: -webkit-radial-gradient(transparent 35%, #015249 35%);
+	background: -moz-radial-gradient(transparent 35%, #015249 35%);
+	background: radial-gradient(transparent 35%, #015249 35%);
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -332,7 +332,7 @@ a#scrollUp i{
 }
 
 .no-csstransforms .cn-wrapper li.active a{
-	background-color: #96E9D2;
+	background-color: #50bd91;
 	color: #fff;
 }
 
@@ -462,7 +462,7 @@ a#scrollUp i{
   padding-top: 20px;
 }
 .header_top{
-	background-color:#96E9D2;
+	background-color:#50bd91;
       border-bottom:#AFAFAF 6px solid;
 }
 .header-middle .container .row .col-sm-4{
@@ -501,7 +501,7 @@ a#scrollUp i{
 }
 
 .dropdown-menu  li  a:hover, .dropdown-menu  li  a:focus {
-  background-color: #8F6AB1;
+  background-color: #015249;
   color: #8C8C88;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
@@ -574,7 +574,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#8F6AB1;
+	color:#015249;
 }
 
 .search_box input {
@@ -627,7 +627,7 @@ ul.sub-menu {
 }
 
 .dropdown ul.sub-menu li .active{
-  color: #8F6AB1;
+  color: #015249;
   padding-left: 0;
 }
 
@@ -645,7 +645,7 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a:hover{
-    color: #8F6AB1;
+    color: #015249;
 }
 
 .fa-angle-down{
@@ -899,7 +899,7 @@ ul.sub-menu {
   border-bottom:#afafaf 6px solid;
 }
 #libros {
-        background-color: #8F6AB1;
+        background-color: #015249;
 }
    .estrellas{
             width:15%;
@@ -2693,7 +2693,7 @@ h2.title {
 #contact-page .form-control:focus, 
 #contact-page .form-control:hover {
   box-shadow: inherit;
-  border-color: #8F6AB1;
+  border-color: #015249;
 }
 
 #contact-page .contact-info {
