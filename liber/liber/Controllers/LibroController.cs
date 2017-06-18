@@ -33,7 +33,8 @@ namespace liber.Controllers
         }
         public ActionResult Vermas(string vermas)
         {
-            //Si no lo encontro deberia mostrarse opciones similares                                                                                                                                                                     
+            //Si no lo encontro deberia mostrarse opciones similares  
+            ViewBag.titulo = vermas;                                                                                                                                                                   
             return View();
         }
     }

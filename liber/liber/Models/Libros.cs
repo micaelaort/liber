@@ -26,6 +26,8 @@ namespace liber.Models
         public string genero { get; set; }
         public string imagen { get; set; }
         public int     id { get; set; }
+        public string ingresado { get; set; }
+
 
 
         DBHelper help = new DBHelper();
@@ -57,6 +59,24 @@ namespace liber.Models
 
             return listLibro;
         }
+
+        public bool Encontrar(string consulta, Libros libro)
+        {
+            help.AbrirConParametros(consulta);
+            /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
+            MySqlParameter parametro1 = new MySqlParameter("PIngresado", libro.ingresado);
+            help.miCommand.Parameters.Add(parametro1);
+            /*Me devuelve los libros del usuario*/
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            if (lector.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
     }
 }

@@ -8,10 +8,11 @@
 <h2>ListadoLibroNoEncontrado</h2>
 
 <div class="table-responsive">
+    @* Genero 1 *@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Genero</th>
+                <th><a>@Html.ActionLink("Género", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
                
             </tr>
         </thead>
@@ -26,7 +27,7 @@
                        <td>@libro.titulo</td>
 
                         <td>
-                            @*<img src="@Url.Content("~/Content/Admintemp/libro/")@libro." height="100" width="75" />*@
+                           <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
                         </td>
 
 
@@ -42,7 +43,122 @@
 
                         }
                     </tr>
-            @Html.ActionLink("Ver más", "Vermas", "Libro", new { vermas = "Genero1" }, null)
+         
+        </tbody>
+    </table>
+    @* Populares *@
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><a>@Html.ActionLink("Populares", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="fila">
+
+                @{foreach (Libros libro in (ViewBag.listlibro))
+                    {
+
+
+                        <td>@libro.titulo</td>
+
+                        <td>
+                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
+                        </td>
+
+
+                        <td>
+                            <!--lo que ve el usuario/view/controller/parametro-->
+
+
+
+                        </td>
+
+                    }
+
+
+                }
+            </tr>
+          
+        </tbody>
+    </table>
+
+    @* Mejor puntuado *@
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><a>@Html.ActionLink("Mejor puntuado", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="fila">
+
+                @{foreach (Libros libro in (ViewBag.listlibro))
+                    {
+
+
+                        <td>@libro.titulo</td>
+
+                        <td>
+                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
+                        </td>
+
+
+                        <td>
+                            <!--lo que ve el usuario/view/controller/parametro-->
+
+
+
+                        </td>
+
+                    }
+
+
+                }
+            </tr>
+
+        </tbody>
+    </table>
+    @* Genero 2*@
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th><a>@Html.ActionLink("Género2", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="fila">
+
+                @{foreach (Libros libro in (ViewBag.listlibro))
+                    {
+
+
+                        <td>@libro.titulo</td>
+
+                        <td>
+                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
+                        </td>
+
+
+                        <td>
+                            <!--lo que ve el usuario/view/controller/parametro-->
+
+
+
+                        </td>
+
+                    }
+
+
+                }
+            </tr>
+
         </tbody>
     </table>
 </div>

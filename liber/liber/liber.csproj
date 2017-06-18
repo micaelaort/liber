@@ -977,6 +977,7 @@
     <Content Include="Views\Libro\DetallesLibro.cshtml" />
     <Content Include="Views\Libro\ListadoLibroEncontrado.cshtml" />
     <Content Include="Views\Libro\ListadoLibroNoEncontrado.cshtml" />
+    <Content Include="Views\Libro\Vermas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

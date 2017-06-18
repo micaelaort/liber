@@ -1,0 +1,19 @@
+﻿@using liber.Models
+@model Libros
+@{
+    ViewBag.Title = "Vermas";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2> @ViewBag.titulo </h2>
+<tr class="fila">
+    @{foreach (Libros libro in (ViewBag.listlibro))
+        {
+
+            <td>
+                <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
+            </td>
+
+        }
+    }
+</tr>

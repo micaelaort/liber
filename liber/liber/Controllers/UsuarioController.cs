@@ -48,7 +48,8 @@ namespace liber.Controllers
         public ActionResult search(Libros libro)
         {
             //Hago consulta que busca el libro, devuelve un bool
-            
+            consulta = "buscar";
+            encontrado = libro.Encontrar(consulta, libro);
             if (encontrado == true)
             {
                 return RedirectToAction(" ListadoLibroEncontrado", "Libro", libro);

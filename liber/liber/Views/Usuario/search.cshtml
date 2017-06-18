@@ -1,4 +1,7 @@
-﻿
+﻿@using liber.Models
+@model Libros
+
+
 @{
     Layout = null;
 }
@@ -37,8 +40,9 @@
     <div>
        
             <form class="search__form" action="">
-                <input class="search__input" name="search" type="search" placeholder="Buscar" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-                <button>Buscar</button>
+                               
+                @Html.TextBoxFor(x =>x.ingresado , new { @class = "search__input", placeholder = "Buscar" , type = "search" })
+                 <button>Buscar</button>
                 
             </form>
         </div>
