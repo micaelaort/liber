@@ -27,6 +27,7 @@ namespace liber.Models
         public string imagen { get; set; }
         public int     id { get; set; }
         public string ingresado { get; set; }
+        int cont;
 
 
 
@@ -42,8 +43,10 @@ namespace liber.Models
             help.miCommand.Parameters.Add(parametro1);
             /*Me devuelve los libros del usuario*/
             MySqlDataReader lector = help.miCommand.ExecuteReader();
-            while (lector.Read())
+            
+                if ((lector.Read())&& (cont<=5))
             {
+                cont++;
                 Libros librorecibido = new Libros();
                 librorecibido.id = Convert.ToInt32(lector["idLibro"]);
                 librorecibido.titulo    =  lector["titulo"].ToString();
@@ -77,6 +80,31 @@ namespace liber.Models
                     return false;
                 }
             }
+
+        public List<Libros> SeleccionarGenero1(string consulta, Libros libro)
+        {
+            help.AbrirConParametros(consulta);
+            /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
+            MySqlParameter parametro1 = new MySqlParameter("PIngresado", libro.ingresado);
+            help.miCommand.Parameters.Add(parametro1);
+            /*Me devuelve los libros del usuario*/
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            while (lector.Read())
+            { 
+                Libros librorecibido = new Libros();
+            librorecibido.id = Convert.ToInt32(lector["idLibro"]);
+            librorecibido.titulo = lector["titulo"].ToString();
+            librorecibido.autor = lector["autor"].ToString();
+            librorecibido.imagen = lector["tapa"].ToString();
+            librorecibido.sinopsis = lector["sinopsis"].ToString();
+            librorecibido.genero = lector["genero"].ToString();
+            librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
+            listLibro.Add(librorecibido);
+            }
+
+            return listLibro;
+        }
+
 
     }
 }
