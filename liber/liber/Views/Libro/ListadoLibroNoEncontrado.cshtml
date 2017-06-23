@@ -5,125 +5,102 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>ListadoLibroNoEncontrado</h2>
+<head>
+    <style>  
+     .contenido{
+        display:flex;
+    }
+        img {
+    border: 0;
+    width: 145px;
+    height: 235px;
+    margin-left: 10%;
+        }
 
-<div class="table-responsive">
+        .Titulo {
+        font-family:'Bell MT';
+        font-size:30px;
+        text-align:center;
+        }
+        #Genero1{
+            border-bottom: 3px solid #afafaf;
+        }
+    </style>
+ 
+</head>
+
     @* Genero 1 *@
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th><a>@Html.ActionLink("Género", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
-               
-            </tr>
-        </thead>
-        <tbody>
-        
-              <tr class="fila">
-                
-                @{foreach (Libros libro in (ViewBag.genero1))
-                    {
+   
+       <div id="Genero1">
+
+           <div class="Titulo">
+               <a>@Html.ActionLink("Género", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
+           </div>
 
 
-                       <td>@libro.titulo
-
-                       
-                           <img src="@Url.Content("~/Content/Usuariotemp/libro/")@libro.imagen" height="100" width="75" />
-                        </td>
+                   <div class="contenido">
+                        @{foreach (Libros libro in (ViewBag.genero1))
+                            {
 
 
-                        <td>
-                            <!--lo que ve el usuario/view/controller/parametro-->
+                                
+                                <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
+
+                                                <!--lo que ve el usuario/view/controller/parametro-->
 
 
 
-                        </td>
 
-                        }
-                      
+                                }
+                            }
 
-                        }
-                    </tr>
-         
-        </tbody>
-    </table>
+            </div>
+</div>
+
   
-    
 
     @* Mejor puntuado *@
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th><a>@Html.ActionLink("Mejor puntuado", "Vermas", "Libro", new { vermas = "Mejor" }, null)</a></th>
+    <div id="Mejor">
 
-            </tr>
-        </thead>
-        <tbody>
+            <div class="Titulo">
+                <a>@Html.ActionLink("Mejor puntuado", "Vermas", "Libro", new { vermas = "Mejor" }, null)</a>
+            </div>
+          
 
-            <tr class="fila">
+        <div class="Contenido">
+            @{foreach (Libros libro in (ViewBag.mejor))
+                {
+                    <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
 
-                @{foreach (Libros libro in (ViewBag.mejor))
-                    {
-
-
-                        <td>@libro.titulo</td>
-
-                        <td>
-                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
-                        </td>
-
-
-                        <td>
                             <!--lo que ve el usuario/view/controller/parametro-->
-
-
-
-                        </td>
-
-                    }
-
-
                 }
-            </tr>
 
-        </tbody>
-    </table>
+
+            }
+        </div>
+
+          </div>
     @* Genero 2*@
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th><a>@Html.ActionLink("Género2", "Vermas", "Libro", new { vermas = "Genero2" }, null)</a></th>
+    <div id="Genero2">
+        <div class="Titulo">
+            <a>@Html.ActionLink("Género2", "Vermas", "Libro", new { vermas = "Genero2" }, null)</a>
+        </div>
+         
 
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr class="fila">
-
-                @{foreach (Libros libro in (ViewBag.genero2))
-                    {
-
-
-                        <td>@libro.titulo</td>
-
-                        <td>
-                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
-                        </td>
-
-
-                        <td>
-                            <!--lo que ve el usuario/view/controller/parametro-->
-
-
-
-                        </td>
-
-                    }
+        <div class="Contenido">
+            @{foreach (Libros libro in (ViewBag.genero2))
+                {
+                    <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
 
 
                 }
-            </tr>
 
-        </tbody>
-    </table>
+
+            }
+        </div>
+
+
+
+
 </div>
 
