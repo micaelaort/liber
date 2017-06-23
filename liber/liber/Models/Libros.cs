@@ -65,6 +65,7 @@ namespace liber.Models
 
         public bool Encontrar(string consulta, Libros libro)
         {
+            consulta = "Buscar";
             help.AbrirConParametros(consulta);
             /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
             MySqlParameter parametro1 = new MySqlParameter("PIngresado", libro.ingresado);
@@ -81,12 +82,8 @@ namespace liber.Models
                 }
             }
 
-        public List<Libros> SeleccionarGenero1(string consulta, Libros libro)
+        public List<Libros> SeleccionarGenero1(string consulta)
         {
-            help.AbrirConParametros(consulta);
-            /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
-            MySqlParameter parametro1 = new MySqlParameter("PIngresado", libro.ingresado);
-            help.miCommand.Parameters.Add(parametro1);
             /*Me devuelve los libros del usuario*/
             MySqlDataReader lector = help.miCommand.ExecuteReader();
             while (lector.Read())
@@ -104,7 +101,68 @@ namespace liber.Models
 
             return listLibro;
         }
+        public List<Libros> SeleccionarGenero2(string consulta)
+        {
+           
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            while (lector.Read())
+            {
+                Libros librorecibido = new Libros();
+                librorecibido.id = Convert.ToInt32(lector["idLibro"]);
+                librorecibido.titulo = lector["titulo"].ToString();
+                librorecibido.autor = lector["autor"].ToString();
+                librorecibido.imagen = lector["tapa"].ToString();
+                librorecibido.sinopsis = lector["sinopsis"].ToString();
+                librorecibido.genero = lector["genero"].ToString();
+                librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
+                listLibro.Add(librorecibido);
+            }
 
+            return listLibro;
+        }
+
+        public List<Libros> SeleccionarMejor(string consulta)
+        {
+            help.Abrir(consulta);
+        
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            while (lector.Read())
+            {
+                Libros librorecibido = new Libros();
+                
+                librorecibido.titulo = lector["titulo"].ToString();
+                librorecibido.autor = lector["autor"].ToString();
+                librorecibido.imagen = lector["tapa"].ToString();
+                librorecibido.sinopsis = lector["sinopsis"].ToString();
+                librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
+                listLibro.Add(librorecibido);
+            }
+
+            return listLibro;
+        }
+
+
+        public List<Libros> SeleccionarPopular(string consulta)
+        {
+            help.Abrir(consulta);
+         
+            /*Me devuelve los libros del usuario*/
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            while (lector.Read())
+            {
+                Libros librorecibido = new Libros();
+                librorecibido.id = Convert.ToInt32(lector["idLibro"]);
+                librorecibido.titulo = lector["titulo"].ToString();
+                librorecibido.autor = lector["autor"].ToString();
+                librorecibido.imagen = lector["tapa"].ToString();
+                librorecibido.sinopsis = lector["sinopsis"].ToString();
+                librorecibido.genero = lector["genero"].ToString();
+                librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
+                listLibro.Add(librorecibido);
+            }
+
+            return listLibro;
+        }
 
     }
 }

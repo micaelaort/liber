@@ -4,16 +4,66 @@
     ViewBag.Title = "Vermas";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+<div @*style="height: 400px; overflow: auto;*@">
+    <h2> @ViewBag.titulo </h2>
+    <table>
+        <tr>
+            @foreach (Libros libros in (ViewBag.libros))
+            {
+                <td>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("DetallesLibro", "Libro", new {idlibro=@libros.id})">
+                                <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libros.imagen" height="200" width="150" />
+                            </a>
+                         </li>
+                        <li> @libros.titulo          </li>
+                        <li> @libros.autor           </li>
+                        <li>
+                            @switch (libros.puntacion.ToString())
+                            {
+                                case "1":
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    break;
 
-<h2> @ViewBag.titulo </h2>
-<tr class="fila">
-    @{foreach (Libros libro in (ViewBag.listlibro))
-        {
+                                case "2":
+                                    <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas2" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    break;
 
-            <td>
-                <img src="@Url.Content("~/Content/Usuariotemp/libro/")@libro.imagen" height="100" width="75" />
-            </td>
-
-        }
-    }
-</tr>
+                                case "3":
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    break;
+                                case "4":
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellablanca.png" />
+                                    break;
+                                case "5":
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    <img class="estrellas" src="@Url.Content("~/Content/Usuariotemp/images/libros/")estrellacolor.png" />
+                                    break;
+                            }
+                        </li>
+                    </ul>
+                </td>
+            }
+        </tr>
+    </table>
+</div>

@@ -20,14 +20,14 @@
         
               <tr class="fila">
                 
-                @{foreach (Libros libro in (ViewBag.listlibro))
+                @{foreach (Libros libro in (ViewBag.genero1))
                     {
 
 
-                       <td>@libro.titulo</td>
+                       <td>@libro.titulo
 
-                        <td>
-                           <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
+                       
+                           <img src="@Url.Content("~/Content/Usuariotemp/libro/")@libro.imagen" height="100" width="75" />
                         </td>
 
 
@@ -46,44 +46,8 @@
          
         </tbody>
     </table>
-    @* Populares *@
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th><a>@Html.ActionLink("Populares", "Vermas", "Libro", new { vermas = "Populares" }, null)</a></th>
-
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr class="fila">
-
-                @{foreach (Libros libro in (ViewBag.listlibro))
-                    {
-
-
-                        <td>@libro.titulo</td>
-
-                        <td>
-                            <img src="@Url.Content("~/Content/Admintemp/libro/")@libro.imagen" height="100" width="75" />
-                        </td>
-
-
-                        <td>
-                            <!--lo que ve el usuario/view/controller/parametro-->
-
-
-
-                        </td>
-
-                    }
-
-
-                }
-            </tr>
-          
-        </tbody>
-    </table>
+  
+    
 
     @* Mejor puntuado *@
     <table class="table table-bordered table-hover">
@@ -97,7 +61,7 @@
 
             <tr class="fila">
 
-                @{foreach (Libros libro in (ViewBag.listlibro))
+                @{foreach (Libros libro in (ViewBag.mejor))
                     {
 
 
@@ -135,7 +99,7 @@
 
             <tr class="fila">
 
-                @{foreach (Libros libro in (ViewBag.listlibro))
+                @{foreach (Libros libro in (ViewBag.genero2))
                     {
 
 
@@ -162,3 +126,4 @@
         </tbody>
     </table>
 </div>
+

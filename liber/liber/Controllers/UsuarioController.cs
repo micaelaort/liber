@@ -52,12 +52,12 @@ namespace liber.Controllers
             encontrado = libro.Encontrar(consulta, libro);
             if (encontrado == true)
             {
-                return RedirectToAction(" ListadoLibroEncontrado", "Libro", libro);
+                return RedirectToAction("ListadoLibroEncontrado", "Libro", libro);
             }
 
             else
             {
-                return RedirectToAction(" ListadoLibroNoEncontrado", "Libro", libro);
+                return RedirectToAction("ListadoLibroNoEncontrado", "Libro", libro);
             }
 
          

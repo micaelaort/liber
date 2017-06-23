@@ -39,10 +39,12 @@
   <div id="Contenedor"> 
     <div>
        
-            <form class="search__form" action="">
+            <form class="search__form" action="@Url.Action("search","Usuario")"  method="post">
                                
                 @Html.TextBoxFor(x =>x.ingresado , new { @class = "search__input", placeholder = "Buscar" , type = "search" })
-                 <button>Buscar</button>
+                <input type="submit" value="Enviar" />
+
+                
                 
             </form>
         </div>

@@ -1,18 +1,38 @@
-﻿
+﻿@using liber.Models
+@model Libros
+
 @{
     ViewBag.Title = "DetallesLibro";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
+<head>
+    <style>
+        #imagen {
+    width: 250px;
+    margin-left: 10%;
+    height: 350px;}
+        #Detalles {
+           float: right;
+         margin-top: -25%; 
+         margin-right:40%;
+                }
+        #h2 {
+        text-align:center;
+        }
+           
+    </style>
 
-<h2>TITULO DEL LIBRO</h2>
+</head>
+<h2 id="h2">TITULO DEL LIBRO</h2>
 
 <div id="Contenedor">
     <div id="Portada">
-
+        <img id="imagen"src="@Url.Content("~/Content/Usuariotemp/images/libros/enllamas.jpg")" />
     </div>
 
     <div id="Detalles">
-
+        <h4>@ViewBag.titulo</h4>
+        <h4>@ViewBag.Autor</h4>
     </div>
 
 </div>
