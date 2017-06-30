@@ -25,16 +25,30 @@
         #Genero1{
             border-bottom: 3px solid #afafaf;
         }
+        .imagenes {
+        margin-left:10%;
+        }
     </style>
  
 </head>
+<div>
+    <h2>No hemos podido encontrar "@ViewBag.ingresado"</h2>
+    <form @*class="search__form"*@ action="@Url.Action("search","Usuario")" method="post">
+
+        @Html.TextBoxFor(x => x.ingresado, new {placeholder = "Buscar", type = "search" })
+        <input type="submit" value="Enviar" />
+
+
+
+    </form>
+</div>
 
     @* Genero 1 *@
    
        <div id="Genero1">
 
            <div class="Titulo">
-               <a>@Html.ActionLink("Género", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a></th>
+               <a>@Html.ActionLink("Género", "Vermas", "Libro", new { vermas = "Genero1" }, null)</a>
            </div>
 
 
@@ -43,9 +57,10 @@
                             {
 
 
-                                
-                                <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
 
+                                <a  class="imagenes"href="@Url.Action("DetallesLibro", "Libro", new {titulolibro=@libro.titulo})">
+                                    <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
+                                </a>
                                                 <!--lo que ve el usuario/view/controller/parametro-->
 
 
@@ -70,7 +85,9 @@
         <div class="Contenido">
             @{foreach (Libros libro in (ViewBag.mejor))
                 {
-                    <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
+                    <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new {titulolibro=@libro.titulo})">
+                        <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
+                    </a>
 
                             <!--lo que ve el usuario/view/controller/parametro-->
                 }
@@ -90,7 +107,9 @@
         <div class="Contenido">
             @{foreach (Libros libro in (ViewBag.genero2))
                 {
-                    <img src="~/Content/Usuariotemp/images/libros/@libro.imagen" height="100" width="75" />
+                    <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new {titulolibro=@libro.titulo})">
+                        <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
+                    </a>
 
 
                 }

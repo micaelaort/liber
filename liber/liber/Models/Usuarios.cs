@@ -102,7 +102,7 @@ namespace liber.Models
 
             help.miCommand.ExecuteNonQuery();
             help.tran.Commit();
-
+            help.conn.Close();
 
 
         }

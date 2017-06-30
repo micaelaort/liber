@@ -60,6 +60,7 @@ namespace liber.Models
 
                 ListBanners.Add(banner);
             }
+            help.conn.Close();
             return ListBanners;
         }
 
@@ -71,6 +72,7 @@ namespace liber.Models
             help.miCommand.Parameters.Add(parametro1);
             help.miCommand.ExecuteNonQuery();
             help.tran.Commit();
+            help.conn.Close();
         }
 
         public void AgregarBanner(string consulta, Banners banner)
@@ -92,7 +94,7 @@ namespace liber.Models
             
             help.miCommand.ExecuteNonQuery();
             help.tran.Commit();
-
+            help.conn.Close();
         }
 
         //deberia comparar que fechainicial no sea mayor a fechafinal
@@ -111,6 +113,7 @@ namespace liber.Models
                     {
                     banner.FechaFinal = fin.ToString();
                     mensaje = "ok";
+
                     return mensaje;
                     }
                     else
@@ -147,6 +150,7 @@ namespace liber.Models
                 banner.Titulo = lector["titulobanner"].ToString();
                 banner.Imagen = lector["imagen"].ToString();                
             }
+            help.conn.Close();
             return banner;
         }
 
@@ -172,7 +176,7 @@ namespace liber.Models
 
             help.miCommand.ExecuteNonQuery();
             help.tran.Commit();
-
+            help.conn.Close();
         }
 
 
