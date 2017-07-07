@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBE20C32-557A-41FC-A2E1-B0155291AFC5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>liber</RootNamespace>
+    <AssemblyName>liber</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.3.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.3.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.3.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.3.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.3.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.3.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibroController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Banners.cs" />
+    <Compile Include="Models\DBHelper.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Libros.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\es\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\es\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\es\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\es\System.Web.Razor.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\liber.dll" />
+    <Content Include="bin\liber.pdb" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\Admintemp\banner1.png" />
+    <Content Include="Content\Admintemp\banner10.png" />
+    <Content Include="Content\Admintemp\banner13.png" />
+    <Content Include="Content\Admintemp\banner2.png" />
+    <Content Include="Content\Admintemp\banner5.png" />
+    <Content Include="Content\Admintemp\banner6.png" />
+    <Content Include="Content\Admintemp\css\bootstrap-rtl.css" />
+    <Content Include="Content\Admintemp\css\bootstrap-rtl.min.css" />
+    <Content Include="Content\Admintemp\css\bootstrap.css" />
+    <Content Include="Content\Admintemp\css\bootstrap.min.css" />
+    <Content Include="Content\Admintemp\css\plugins\morris.css" />
+    <Content Include="Content\Admintemp\css\sb-admin-rtl.css" />
+    <Content Include="Content\Admintemp\css\sb-admin.css" />
+    <Content Include="Content\Admintemp\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Admintemp\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Admintemp\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admintemp\js\bootstrap.js" />
+    <Content Include="Content\Admintemp\js\bootstrap.min.js" />
+    <Content Include="Content\Admintemp\js\jquery.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\flot-data.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Admintemp\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\Admintemp\js\plugins\morris\morris-data.js" />
+    <Content Include="Content\Admintemp\js\plugins\morris\morris.js" />
+    <Content Include="Content\Admintemp\js\plugins\morris\morris.min.js" />
+    <Content Include="Content\Admintemp\js\plugins\morris\raphael.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\imagen\login.jpg" />
+    <Content Include="Content\mytemplatepagprincipal\css\paginaprincipal.css" />
+    <Content Include="Content\mytemplatepagprincipal\css\paginaprincipal.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\edition\gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\edition\rose.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\sport\black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\sport\blue.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\sport\green.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\sport\red.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\sport\white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\watch\metal.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\apple_watch\watch\steel.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\device-mockups.css" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\device-mockups.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\device-mockups2.css" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\device-mockups2.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s3\s3_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s3\s3_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s3\s3_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s3\s3_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_land_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_port_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_s5\galaxy_s5_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_tab4\galaxy_tab4_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_tab4\galaxy_tab4_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_tab4_small\galaxy_tab4_black_small.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\galaxy_tab4_small\galaxy_tab4_white_small.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\imac\imac.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad\ipad_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad\ipad_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad\ipad_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad\ipad_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air\ipad_air_gray_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air\ipad_air_gray_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air\ipad_air_silver_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air\ipad_air_silver_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_gold_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_gold_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_gray_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_gray_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_silver_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_air_2\ipad_air_2_silver_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_land_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_land_silver.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_port_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\ipad_pro\ipad_pro_port_silver.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone5\iphone5_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone5\iphone5_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone5\iphone5_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone5\iphone5_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_land_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_port_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6\iphone_6_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_black_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_black_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_gold_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_gold_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_white_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_6_plus\iphone_6_plus_white_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_land_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_land_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_land_rose.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_land_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_port_black.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_port_gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_port_rose.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\iphone_se\iphone_se_port_white.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia920\lumia920_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia920\lumia920_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia_930\lumia_930_dark_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia_930\lumia_930_dark_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia_930\lumia_930_light_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\lumia_930\lumia_930_light_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\macbook\macbook.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\macbook_2015\gold.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\macbook_2015\grey.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\macbook_2015\silver.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\nexus7\nexus7_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\nexus7\nexus7_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\nexus_6\nexus_6_land.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\nexus_6\nexus_6_port.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\samsung_tv\samsung_tv.png" />
+    <Content Include="Content\mytemplatepagprincipal\device-mockups\surface\surface.png" />
+    <Content Include="Content\mytemplatepagprincipal\img\app-store-badge.svg" />
+    <Content Include="Content\mytemplatepagprincipal\img\bg-cta.jpg" />
+    <Content Include="Content\mytemplatepagprincipal\img\bg-pattern.png" />
+    <Content Include="Content\mytemplatepagprincipal\img\demo-screen-1.jpg" />
+    <Content Include="Content\mytemplatepagprincipal\img\google-play-badge.svg" />
+    <Content Include="Content\mytemplatepagprincipal\img\libro.png" />
+    <Content Include="Content\mytemplatepagprincipal\img\monitor.png" />
+    <Content Include="Content\mytemplatepagprincipal\img\pluma.png" />
+    <Content Include="Content\mytemplatepagprincipal\js\paginaprincipal.js" />
+    <Content Include="Content\mytemplatepagprincipal\js\paginaprincipal.min.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap-grid.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap-grid.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap-reboot.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap-reboot.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\css\paginaprincipalbootstrap.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\jquery\jquery.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\tether\tether.js" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\tether\tether.min.js" />
+    <Content Include="Content\search.png" />
+    <Content Include="Content\Usuariotemp\css\animate.css" />
+    <Content Include="Content\Usuariotemp\css\bootstrap.min.css" />
+    <Content Include="Content\Usuariotemp\css\buscar.css" />
+    <Content Include="Content\Usuariotemp\css\common.css" />
+    <Content Include="Content\Usuariotemp\css\demobuscar.css" />
+    <Content Include="Content\Usuariotemp\css\font-awesome.min.css" />
+    <Content Include="Content\Usuariotemp\css\main.css" />
+    <Content Include="Content\Usuariotemp\css\normalize.css" />
+    <Content Include="Content\Usuariotemp\css\prettyPhoto.css" />
+    <Content Include="Content\Usuariotemp\css\price-range.css" />
+    <Content Include="Content\Usuariotemp\css\responsive.css" />
+    <Content Include="Content\Usuariotemp\css\style2.css" />
+    <Content Include="Content\Usuariotemp\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Usuariotemp\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Usuariotemp\images\404\404.png" />
+    <Content Include="Content\Usuariotemp\images\banner\banner1.png" />
+    <Content Include="Content\Usuariotemp\images\banner\banner2.jpg" />
+    <Content Include="Content\Usuariotemp\images\banner\banner3.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\blog-one.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\blog-three.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\blog-two.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\man-four.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\man-one.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\man-three.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\man-two.jpg" />
+    <Content Include="Content\Usuariotemp\images\blog\socials.png" />
+    <Content Include="Content\Usuariotemp\images\cart\one.png" />
+    <Content Include="Content\Usuariotemp\images\cart\three.png" />
+    <Content Include="Content\Usuariotemp\images\cart\two.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\1.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\10.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\11.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\12.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\13.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\14.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\15.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\16.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\17.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\18.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\19.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\2.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\20.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\21.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\22.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\23.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\24.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\25.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\3.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\4.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\5.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\6.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\7.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\8.png" />
+    <Content Include="Content\Usuariotemp\images\Eventos\9.png" />
+    <Content Include="Content\Usuariotemp\images\home.png" />
+    <Content Include="Content\Usuariotemp\images\home\bg_border.png" />
+    <Content Include="Content\Usuariotemp\images\home\gallery1.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\gallery2.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\gallery3.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\gallery4.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\girl1.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\girl2.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\girl3.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\iframe1.png" />
+    <Content Include="Content\Usuariotemp\images\home\iframe2.png" />
+    <Content Include="Content\Usuariotemp\images\home\iframe3.png" />
+    <Content Include="Content\Usuariotemp\images\home\iframe4.png" />
+    <Content Include="Content\Usuariotemp\images\home\logo.png" />
+    <Content Include="Content\Usuariotemp\images\home\map.png" />
+    <Content Include="Content\Usuariotemp\images\home\new.png" />
+    <Content Include="Content\Usuariotemp\images\home\partner1.png" />
+    <Content Include="Content\Usuariotemp\images\home\partner2.png" />
+    <Content Include="Content\Usuariotemp\images\home\partner3.png" />
+    <Content Include="Content\Usuariotemp\images\home\partner4.png" />
+    <Content Include="Content\Usuariotemp\images\home\pricing.png" />
+    <Content Include="Content\Usuariotemp\images\home\product1.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\product2.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\product3.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\product4.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\product5.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\product6.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\recommend1.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\recommend2.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\recommend3.jpg" />
+    <Content Include="Content\Usuariotemp\images\home\sale.png" />
+    <Content Include="Content\Usuariotemp\images\home\searchicon.png" />
+    <Content Include="Content\Usuariotemp\images\home\shipping.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\cazadoresdesombras.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\enllamas.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\estrellablanca.png" />
+    <Content Include="Content\Usuariotemp\images\libros\estrellacolor.png" />
+    <Content Include="Content\Usuariotemp\images\libros\hermosodesastre.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\mataraunruisenor.jpg" />
+    <Content Include="Content\Usuariotemp\images\libros\orgulloyprejuicio.jpg" />
+    <Content Include="Content\Usuariotemp\images\product-details\1.jpg" />
+    <Content Include="Content\Usuariotemp\images\product-details\new.jpg" />
+    <Content Include="Content\Usuariotemp\images\product-details\rating.png" />
+    <Content Include="Content\Usuariotemp\images\product-details\share.png" />
+    <Content Include="Content\Usuariotemp\images\product-details\similar1.jpg" />
+    <Content Include="Content\Usuariotemp\images\product-details\similar2.jpg" />
+    <Content Include="Content\Usuariotemp\images\product-details\similar3.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\advertisement.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product10.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product11.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product12.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product7.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product8.jpg" />
+    <Content Include="Content\Usuariotemp\images\shop\product9.jpg" />
+    <Content Include="Content\Usuariotemp\js\anime.min.js" />
+    <Content Include="Content\Usuariotemp\js\bootstrap.min.js" />
+    <Content Include="Content\Usuariotemp\js\charming.min.js" />
+    <Content Include="Content\Usuariotemp\js\contact.js" />
+    <Content Include="Content\Usuariotemp\js\demo1.js" />
+    <Content Include="Content\Usuariotemp\js\demo2.js" />
+    <Content Include="Content\Usuariotemp\js\demo9.js" />
+    <Content Include="Content\Usuariotemp\js\gmaps.js" />
+    <Content Include="Content\Usuariotemp\js\html5shiv.js" />
+    <Content Include="Content\Usuariotemp\js\jquery.js" />
+    <Content Include="Content\Usuariotemp\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\Usuariotemp\js\jquery.scrollUp.min.js" />
+    <Content Include="Content\Usuariotemp\js\jquerypp.custom.js" />
+    <Content Include="Content\Usuariotemp\js\main.js" />
+    <Content Include="Content\Usuariotemp\js\main2.js" />
+    <Content Include="Content\Usuariotemp\js\modernizr-2.6.2.min.js" />
+    <Content Include="Content\Usuariotemp\js\modernizr.custom.js" />
+    <Content Include="Content\Usuariotemp\js\polyfills.js" />
+    <Content Include="Content\Usuariotemp\js\price-range.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Usuariotemp\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Usuariotemp\fonts\FontAwesome.otf" />
+    <Content Include="Content\Usuariotemp\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\liber.dll.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="obj\Debug\liber.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\liber.dll" />
+    <Content Include="obj\Debug\liber.pdb" />
+    <Content Include="packages\Antlr.3.4.1.9004\Antlr.3.4.1.9004.nupkg" />
+    <Content Include="packages\bootstrap.3.0.0\bootstrap.3.0.0.nupkg" />
+    <Content Include="packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\EntityFramework.6.1.3\content\App.config.transform" />
+    <Content Include="packages\EntityFramework.6.1.3\content\Web.config.transform" />
+    <Content Include="packages\EntityFramework.6.1.3\EntityFramework.6.1.3.nupkg" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\EntityFramework.psd1" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\EntityFramework.psm1" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\init.ps1" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\install.ps1" />
+    <Content Include="packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="packages\jQuery.1.10.2\jQuery.1.10.2.nupkg" />
+    <Content Include="packages\jQuery.1.10.2\Tools\common.ps1" />
+    <Content Include="packages\jQuery.1.10.2\Tools\install.ps1" />
+    <Content Include="packages\jQuery.1.10.2\Tools\uninstall.ps1" />
+    <Content Include="packages\jQuery.Validation.1.11.1\jQuery.Validation.1.11.1.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\Microsoft.ApplicationInsights.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\content\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\content\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\content\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\Microsoft.ApplicationInsights.DependencyCollector.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\content\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\content\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\content\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net40\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net40\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net40\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net40\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net40\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net45\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net45\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net45\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\Microsoft.ApplicationInsights.Web.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\content\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\content\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\content\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\Microsoft.ApplicationInsights.WindowsServer.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\Tools\install.ps1" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\content\ApplicationInsights.config.install.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\content\ApplicationInsights.config.transform" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\content\ApplicationInsights.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Core.2.2.1\Microsoft.AspNet.Identity.Core.2.2.1.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\Microsoft.AspNet.Identity.EntityFramework.2.2.1.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Owin.2.2.1\Microsoft.AspNet.Identity.Owin.2.2.1.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\Microsoft.AspNet.Mvc.5.2.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.es.5.2.3\Microsoft.AspNet.Mvc.es.5.2.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.3\Microsoft.AspNet.Razor.3.2.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.es.3.2.3\Microsoft.AspNet.Razor.es.3.2.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.es.1.1.3\Microsoft.AspNet.Web.Optimization.es.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\Microsoft.AspNet.WebPages.3.2.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\Microsoft.AspNet.WebPages.es.3.2.3.nupkg" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.3\Microsoft.jQuery.Unobtrusive.Validation.3.2.3.nupkg" />
+    <Content Include="packages\Microsoft.Owin.3.0.1\Microsoft.Owin.3.0.1.nupkg" />
+    <Content Include="packages\Microsoft.Owin.Host.SystemWeb.3.0.1\Microsoft.Owin.Host.SystemWeb.3.0.1.nupkg" />
+    <Content Include="packages\Microsoft.Owin.Security.3.0.1\Microsoft.Owin.Security.3.0.1.nupkg" />
+    <Content Include="packages\Microsoft.Owin.Security.Facebook.3.0.1\Microsoft.Owin.Security.Facebook.3.0.1.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="packages\Modernizr.2.6.2\Modernizr.2.6.2.nupkg" />
+    <Content Include="packages\Modernizr.2.6.2\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.6.2\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.6.2\Tools\uninstall.ps1" />
+    <Content Include="packages\MySql.Data.6.9.9\CHANGES" />
+    <Content Include="packages\MySql.Data.6.9.9\content\app.config.transform" />
+    <Content Include="packages\MySql.Data.6.9.9\content\web.config.transform" />
+    <Content Include="packages\MySql.Data.6.9.9\MySql.Data.6.9.9.nupkg" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\Newtonsoft.Json.6.0.4.nupkg" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\tools\install.ps1" />
+    <Content Include="packages\Owin.1.0\Owin.1.0.nupkg" />
+    <Content Include="packages\Respond.1.2.0\Respond.1.2.0.nupkg" />
+    <Content Include="packages\WebGrease.1.5.2\WebGrease.1.5.2.nupkg" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\liber.csprojResolveAssemblyReference.cache" />
+    <Content Include=".vs\config\applicationhost.config" />
+    <Content Include=".vs\liber\v14\.suo" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\animated.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\core.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\icons.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\larger.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\list.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\path.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\less\variables.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\less\simple-line-icons.less" />
+    <Content Include="Content\mytemplatepagprincipal\vendor\simple-line-icons\scss\simple-line-icons.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\new-age.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_bootstrap-overrides.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_contact.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_cta.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_download.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_features.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_footer.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_global.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_masthead.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_mixins.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_navbar.scss" />
+    <Content Include="Content\mytemplatepagprincipal\scss\_variables.scss" />
+    <Content Include="Content\Admintemp\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admintemp\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admintemp\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admintemp\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Admintemp\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\core.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\icons.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\larger.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\list.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\mixins.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\path.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\spinning.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\stacked.less" />
+    <Content Include="Content\Admintemp\font-awesome\less\variables.less" />
+    <Content Include="Content\Admintemp\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_list.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\Admintemp\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\bootstrap.3.0.0\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.0.0\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.0.0\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.0.0\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.1.3\lib\net45\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\about_EntityFramework.help.txt" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\EntityFramework.PowerShell.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\EntityFramework.PowerShell.Utility.dll" />
+    <Content Include="packages\EntityFramework.6.1.3\tools\migrate.exe" />
+    <None Include="packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.js" />
+    <Content Include="packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.min.js" />
+    <None Include="packages\jQuery.1.10.2\Tools\jquery-1.10.2.intellisense.js" />
+    <None Include="packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net40\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net40\Microsoft.ApplicationInsights.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\netstandard1.5\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\netstandard1.5\Microsoft.ApplicationInsights.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\uap10.0\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.2.2.0\lib\wp8\Microsoft.ApplicationInsights.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net40\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net40\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net40\Microsoft.AI.DependencyCollector.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net40\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net40\Microsoft.AI.Web.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net40\Microsoft.AI.Web.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net40\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net40\Microsoft.AI.WindowsServer.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net40\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net40\Microsoft.AI.ServerTelemetryChannel.XML" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.XML" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\es\System.Web.Mvc.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\es\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.es.5.2.3\lib\net45\es\System.Web.Mvc.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.es.5.2.3\lib\net45\es\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\es\System.Web.Razor.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\es\system.web.razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.es.3.2.3\lib\net45\es\System.Web.Razor.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.es.3.2.3\lib\net45\es\system.web.razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\es\System.Web.Optimization.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.es.1.1.3\lib\net40\es\System.Web.Optimization.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\System.Web.Helpers.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\system.web.helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\system.web.webpages.deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\system.web.webpages.razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\System.Web.WebPages.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\es\system.web.webpages.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\System.Web.Helpers.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\system.web.helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\system.web.webpages.deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\system.web.webpages.razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\System.Web.WebPages.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.es.3.2.3\lib\net45\es\system.web.webpages.xml" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.3\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.3\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll" />
+    <Content Include="packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.XML" />
+    <Content Include="packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll" />
+    <Content Include="packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.XML" />
+    <Content Include="packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.XML" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Modernizr.2.6.2\Content\Scripts\modernizr-2.6.2.js" />
+    <Content Include="packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll" />
+    <Content Include="packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll" />
+    <Content Include="packages\MySql.Data.6.9.9\Readme.txt" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net40%252Bsl5%252Bwp80%252Bwin8%252Bwpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net40%252Bsl5%252Bwp80%252Bwin8%252Bwpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net45%252Bwp80%252Bwin8%252Bwpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.6.0.4\lib\portable-net45%252Bwp80%252Bwin8%252Bwpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Owin.1.0\lib\net40\Owin.dll" />
+    <Content Include="packages\Respond.1.2.0\content\Scripts\respond.js" />
+    <Content Include="packages\Respond.1.2.0\content\Scripts\respond.min.js" />
+    <Content Include="packages\WebGrease.1.5.2\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.5.2\tools\WG.exe" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_mytemplatepagprincipal.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Registrar.cshtml" />
+    <Content Include="Views\Home\Model.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Usuario\IndexUsuario.cshtml" />
+    <Content Include="Views\Usuario\Eventos.cshtml" />
+    <Content Include="Views\Shared\_AdminLayoutcshtml.cshtml" />
+    <Content Include="Views\Admin\IndexAdmin.cshtml" />
+    <Content Include="Views\Admin\Banners.cshtml" />
+    <Content Include="Views\Admin\EliminarBanner.cshtml" />
+    <Content Include="Views\Admin\AgregarBanner.cshtml" />
+    <Content Include="Views\Admin\ModificarBanner.cshtml" />
+    <Content Include="Views\Usuario\search.cshtml" />
+    <Content Include="Views\Libro\DetallesLibro.cshtml" />
+    <Content Include="Views\Libro\ListadoLibroEncontrado.cshtml" />
+    <Content Include="Views\Libro\ListadoLibroNoEncontrado.cshtml" />
+    <Content Include="Views\Libro\Vermas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Admintemp\banner\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51622</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51622/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

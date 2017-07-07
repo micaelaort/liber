@@ -16,10 +16,10 @@ namespace liber.Controllers
         bool encontrado;
         string consulta;
         Banners banner = new Banners();
-        Libros libros = new Libros();
         List<Banners> listBanner = new List<Models.Banners>();
+
+       
         List<Libros> listLibro = new List<Libros>();
-        List<Libros> listAutores= new List<Libros>();
         // GET: Usuario
         public ActionResult IndexUsuario(Usuarios usuario)
         {
@@ -40,10 +40,7 @@ namespace liber.Controllers
         }
         public ActionResult search()
         {
-            listLibro=libros.Traer3libros();
-            ViewBag.listalibros = listLibro;
-            listAutores = libros.Traer3Autores();
-            ViewBag.listaautores = listAutores;
+            
             return View();
         }
 

@@ -1,0 +1,80 @@
+﻿
+@using liber.Models
+@model Banners
+@{
+    ViewBag.Title = "AgregarBanner";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+<head>
+    <style>
+        #ErrorFecha{
+            color:red;
+        }
+    </style>
+</head>
+<h2>AgregarBanner</h2>
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Agregar Banners
+                    
+                </h1>
+             
+                    
+                        <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+              
+                   
+                
+                <div id="FormBanner">
+                    @using (Html.BeginForm("AgregarBanner", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                    {
+                        <header class="masthead">
+
+                            
+
+                        </header>
+                        <div class="EtiquetasValidaciones">
+                            <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                            <label class="etiquetas">Titulo</label>@Html.ValidationMessageFor(x => x.Titulo, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.Titulo, new { @class = "texto", placeholder = "Ingrese titulo" })
+
+
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Imagen</label>@Html.ValidationMessageFor(x => x.Imagen, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.Imagen, new { type = "file", @class = "texto", placeholder = "Ingrese imagen"})
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">fecha de inicio</label>@Html.ValidationMessageFor(x => x.FechaInicio, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.dtFechaInicio, new { type = "date", @class = "texto", placeholder = "Ingrese imagen" })
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Fecha final</label>@Html.ValidationMessageFor(x => x.FechaFinal, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.dtFechaFinal, new { type = "date", @class = "texto", placeholder = "Ingrese imagen" })
+
+                        <button type="submit" onclick="onsave()">Agregar Banner</button>
+
+                    }
+                </div>
+
+
+                </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+   

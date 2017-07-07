@@ -1,6 +1,4 @@
-﻿@using liber.Models
-@model Libros
-
+﻿
 @{
     ViewBag.Title = "ListadoLibroEncontrado";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -8,15 +6,3 @@
 
 <h2>ListadoLibroEncontrado</h2>
 
-
-@{foreach (Libros libro in (ViewBag.lista))
-    {
-        <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new {titulolibro=@libro.titulo})">
-            <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
-        </a>
-
-
-    }
-
-
-}

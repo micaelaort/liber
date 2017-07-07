@@ -1,0 +1,57 @@
+﻿@using liber.Models
+@model Libros
+
+@{
+    ViewBag.Title = "DetallesLibro";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<head>
+    <style>
+        #imagen {
+    width: 250px;
+    margin-left: 10%;
+    height: 350px;}
+        #Detalles {
+           float: right;
+         margin-top: -25%; 
+         margin-right:40%;
+                }
+        #h2 {
+        text-align:center;
+        }
+           
+    </style>
+
+</head>
+
+   
+        <h2 id="h2">@ViewBag.titulo</h2>
+
+       <div id="Contenedor">
+            <div id="Portada">
+                <img id="imagen"src="@Url.Content("~/Content/Usuariotemp/images/libros/")/@ViewBag.imagen" />
+            </div>
+
+            <div id="Detalles">
+                
+                <h4>autor: @ViewBag.autor</h4>
+                <h4>genero:@ViewBag.genero</h4>
+                <h4>sinopsis: @ViewBag.sinopsis</h4>
+                
+                <img class="estrellas" src="@ViewData["estrella1"]" /> 
+                <img class="estrellas" src="@ViewData["estrella2"]" />
+                <img class="estrellas" src="@ViewData["estrella3"]"  />  
+                <img class="estrellas" src="@ViewData["estrella4"]"/>
+                <img class="estrellas" src="@ViewData["estrella5"]" />
+                
+                <select>
+                    <option value="volvo">Quiero leerlo</option>
+                    <option value="saab">Lo lei</option>
+                    <option value="audi">Guardar en mi bibloteca</option>
+                </select>
+               
+
+            </div>
+
+                    
+    

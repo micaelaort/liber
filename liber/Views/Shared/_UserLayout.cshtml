@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+@using liber.Models
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   @* Conectores del search *@
+    <link href="~/Content/Usuariotemp/css/buscar.css" rel="stylesheet" />
+    <link href="~/Content/Usuariotemp/css/demobuscar.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    
+    <script>document.documentElement.className = 'js';</script>
+    @* Conectores del theme *@
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/bootstrap.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/font-awesome.min.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/prettyPhoto.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/price-range.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/animate.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/main.css" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Usuariotemp/")css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/common.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/style2.css" />
+    <!--Conectores del estilo de nav bar circulo-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Usuariotemp/")css/component2.css" />
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+            </script>	
+   
+
+</head>
+<body>
+
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <!-- El menu con fondo, main.css contiene el estilo-->
+            <div class="component">
+                <h2>Liber</h2>
+                <!-- Start Nav Structure -->
+                <button class="cn-button" id="cn-button">Menu</button>
+                <div class="cn-wrapper" id="cn-wrapper">
+                    <ul>
+                        <li class="s-icon">
+                            <svg class="hidden">
+                                <defs>
+
+                                    <symbol id="icon-search" viewBox="0 0 24 24">
+                                        <title>search</title>
+                                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                    </symbol>
+
+                                </defs>
+                            </svg>
+                            <a href="/Usuario/search" id="addClass"><span class="glyphicon glyphicon-search"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></span></a>
+                        </li>
+                        <li><a href="#"><span>Tutorials</span></a></li>
+                        <li><a href="#"><span>Articles</span></a></li>
+                        <li>
+                        
+                        
+                        <a href=@Url.Action("IndexUsuario","Usuario")></a><span>
+                        <img   src="~/Content/Usuariotemp/images/home.png" width="56"/></span></a></li>
+                        <li><a href="#"><span>Plugins</span></a></li>
+                        <li><a href="#"><span>Contact</span></a></li>
+                        <li><a href="#"><span>Follow</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /container -->
+            <script src="@Url.Content("~/Content/Usuariotemp/")js/polyfills.js"></script>
+            <script src="@Url.Content("~/Content/Usuariotemp/")js/demo2.js"></script>
+        
+        </div>
+    
+
+        
+
+    </header><!--/header-->
+    @* java del search *@
+    <script src="~/Content/Usuariotemp/js/demo9.js"></script>
+    @* java del theme *@
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/bootstrap.min.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.scrollUp.min.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/price-range.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/jquery.prettyPhoto.js"></script>
+    <script src="@Url.Content("~/Content/Usuariotemp/")js/main.js"></script>
+   
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>

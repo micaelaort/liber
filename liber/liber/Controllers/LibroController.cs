@@ -13,93 +13,39 @@ namespace liber.Controllers
     public class LibroController : Controller
     {
         List<Libros> listLibro = new List<Libros>();
-        Libros libro = new Libros();
+        Libros libro= new Libros();
         string consulta;
         // GET: Libro
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult DetallesLibro(string titulolibro)
+        public ActionResult DetallesLibro()
         {
-            consulta = "BuscarTitulo";
-            libro = libro.BuscarLibro(consulta, titulolibro);
-            ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.puntacion;
-            ViewBag.autor = libro.autor;
-            ViewBag.genero = libro.genero;
-            ViewBag.sinopsis = libro.sinopsis;
-            ViewBag.imagen = libro.imagen;
-
-            switch (libro.puntacion.ToString())
-            {
-                case "1":
-                    ViewData["estrella1"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella2"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella3"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella4"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella5"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    break;
-                case "2":
-                    ViewData["estrella1"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella2"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella3"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella4"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella5"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    break;
-                case "3":
-                    ViewData["estrella1"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella2"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella3"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella4"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    ViewData["estrella5"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    break;
-                case "4":
-                    ViewData["estrella1"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella2"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella3"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella4"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella5"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellablanca.png");
-                    break;
-                case "5":
-                    ViewData["estrella1"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella2"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella3"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella4"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    ViewData["estrella5"] = Url.Content("~/Content/Usuariotemp/images/libros/estrellacolor.png");
-                    break;
-            }
-
-
+            ViewBag.titulo = "hola";
+            ViewBag.autor = "afgsf";
             return View();
         }
 
 
-        public ActionResult ListadoLibroEncontrado(Libros libro)
+        public ActionResult ListadoLibroEncontrado()
         {
-            ViewBag.ingresado = libro.ingresado;
-           ViewBag.lista=libro.TraerSeleccionado(libro.ingresado);
-            
-                       //Aca va todo lo encontrado-
+            //Aca va todo lo encontrado-
             return View();
         }
 
 
-        public ActionResult ListadoLibroNoEncontrado(Libros libro)
+        public ActionResult ListadoLibroNoEncontrado()
         {
-            ViewBag.ingresado = libro.ingresado;
-            List<Libros> listLibro1 = new List<Libros>();
-            List<Libros> listLibro2 = new List<Libros>();
-            List<Libros> listLibro3 = new List<Libros>();
             consulta = "SeleccionarMejor";
-            listLibro1 = libro.SeleccionarMejor(consulta);
-            ViewBag.mejor = listLibro1;
+            listLibro = libro.SeleccionarMejor(consulta);
+            ViewBag.mejor = listLibro;
             consulta = "SeleccionarGenero1";
-            listLibro2 = libro.SeleccionarGenero1(consulta);
-            ViewBag.genero1 = listLibro2;
+            listLibro = libro.SeleccionarMejor(consulta);
+            ViewBag.genero1 = listLibro;
             consulta = "SeleccionarGenero2";
-            listLibro3 = libro.SeleccionarGenero2(consulta);
-            ViewBag.genero2 = listLibro3;
+            listLibro = libro.SeleccionarMejor(consulta);
+            ViewBag.genero2 = listLibro;
 
             //Si no lo encontro deberia mostrarse opciones similares                                                                                                                                                                     
             return View();

@@ -1,0 +1,75 @@
+﻿@using liber.Models
+@model Banners
+@{
+    ViewBag.Title = "Banners";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>Banners</h2>
+<body>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tables
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i> Tables
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="TituloBanner">Banners</h2>
+
+                    <a class="btn btn-lg btn-default" href=@Url.Action("AgregarBanner","Admin") >Agregar banner</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Imagen</th>
+                                    <th>Fecha desde</th>
+                                    <th>Fecha hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+    como hacer que aparezca un objeto de una clase en una tabla*@
+                                    
+                                    @{foreach (Banners banner in (ViewBag.listBanner))
+                                        {
+                                    <tr class="fila">
+
+                                        <td>@banner.Titulo</td>
+
+                                        <td>
+                                        <img src="@Url.Content("~/Content/Admintemp/banner/")@banner.Imagen" height="100" width="75" /></td>
+  
+                                        <td>@banner.FechaInicio</td>
+                                        <td>@banner.FechaFinal</td>
+                                        <td>
+                                            <!--lo que ve el usuario/view/controller/parametro-->
+                                            @Html.ActionLink("Modificar", "ModificarBanner", "Admin", new { idbanner = @banner.Id }, null)
+                                            @Html.ActionLink("Eliminar", "EliminarBanner", "Admin", new { idbanner = @banner.Id }, null)
+                                        </td>
+                                    </tr>
+                                     }
+                                    } 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -12,7 +12,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+    <title>Inspiration for Search UI Effects | Demo 9 | Codrops</title>
     <meta name="description" content="Some inspiration for search UI effects" />
     <meta name="keywords" content="web design, inspiration, search, ui, effect, javascript, animation" />
     <meta name="author" content="Codrops" />
@@ -37,26 +37,11 @@
         </defs>
     </svg>
   <div id="Contenedor"> 
-   
-    
-     <div>
-         <div class="search__suggestion" id="LibrosSugeridos">
-             <h3>Libros sugeridos</h3>
-             @{foreach (Libros libro in (ViewBag.listalibros))
-                 {
-                     <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new { titulolibro = @libro.titulo })">
-                         <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
-                     </a>
-
-
-                 }
-             }
-
-         </div>
-
-            <form class="search__form" action="@Url.Action("search", "Usuario")"  method="post">
+    <div>
+       
+            <form class="search__form" action="@Url.Action("search","Usuario")"  method="post">
                                
-                @Html.TextBoxFor(x => x.ingresado, new { @class = "search__input", placeholder = "Buscar", type = "search" })
+                @Html.TextBoxFor(x =>x.ingresado , new { @class = "search__input", placeholder = "Buscar" , type = "search" })
                 <input type="submit" value="Enviar" />
 
                 
@@ -65,18 +50,13 @@
         </div>
         <div>
             <div class="search__related">             
-           
+                <div class="search__suggestion" id="LibrosSugeridos">
+                    <h3>Libros sugeridos</h3>
+                    <p>#drone #funny #catgif #broken #lost #hilarious #good #red #blue #nono #why #yes #yesyes #aliens #green</p>
+                </div>
                 <div class="search__suggestion" id="AutoresSugeridos">
-                    @{foreach (Libros libro in (ViewBag.listaautores))
-                        {
-                            <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new { titulolibro = @libro.titulo })">
-                                <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
-                            </a>
-
-
-                        }
-                    }
-                
+                    <h3>Autores sugeridos</h3>
+                    <p>#broken #lost #good #red #funny #hilarious #catgif #blue #nono #why #yes #yesyes #aliens #green #drone</p>
                 </div>
             </div>
         </div>
