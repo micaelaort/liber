@@ -29,13 +29,9 @@ namespace liber.Models
         public string ingresado { get; set; }
         int cont;
         string consulta;
-        string contra;
-        string user;
 
-
-        DBHelper help = new DBHelper();
-        Dictionary<int, Libros> dicLibros = new Dictionary<int, Libros>();
-        List<Libros> listLibro = new List<Libros>();
+       DBHelper help = new DBHelper();
+           List<Libros> listLibro = new List<Libros>();
         public List<Libros> SeleccionarLibrosUsuario(int iduser, string consulta)
         {
 
@@ -164,13 +160,12 @@ namespace liber.Models
         public List<Libros> TraerSeleccionado(string ingresado)
         {
             listLibro = new List<Libros>();
-            consulta = "BuscarTitulo";
+            consulta = "Buscar";
             help.AbrirConParametros(consulta);
             /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
-            MySqlParameter parametro1 = new MySqlParameter("PTitulo", ingresado);
+            MySqlParameter parametro1 = new MySqlParameter("PIngresado", ingresado);
             help.miCommand.Parameters.Add(parametro1);
-
-
+            
             MySqlDataReader lector = help.miCommand.ExecuteReader();
             //Se fija si buscarlibro devuelve algo, si vuelve vacio busca por autor
             while (lector.Read())
@@ -186,53 +181,7 @@ namespace liber.Models
             }
             
             help.conn.Close();
-            /***********************AUTORES****************************************/
-
-            consulta = "BuscarAutor";
-            help.AbrirConParametros(consulta);
-            /*Le mando lo ingresado y debe buscar en autores, libros o genero*/
-            MySqlParameter parametro2 = new MySqlParameter("PAutor", ingresado);
-            help.miCommand.Parameters.Add(parametro2);
-
-
-            lector = help.miCommand.ExecuteReader();
-            //Se fija si buscarlibro devuelve algo, si vuelve vacio busca por autor
-            while (lector.Read())
-            {
-                Libros librorecibido = new Libros();
-
-                librorecibido.titulo = lector["titulo"].ToString();
-                librorecibido.autor = lector["autor"].ToString();
-                librorecibido.imagen = lector["tapa"].ToString();
-                librorecibido.sinopsis = lector["sinopsis"].ToString();
-                librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
-                listLibro.Add(librorecibido);
-            }
-
-            help.conn.Close();
-            /***********************Genero****************************************/
-            //consulta = "BuscarGenero";
-            //help.AbrirConParametros(consulta);
-            ///*Le mando lo ingresado y debe buscar en autores, libros o genero*/
-            //MySqlParameter parametro3 = new MySqlParameter("PGenero", ingresado);
-            //help.miCommand.Parameters.Add(parametro2);
-
-
-            //lector = help.miCommand.ExecuteReader();
-            ////Se fija si buscarlibro devuelve algo, si vuelve vacio busca por autor
-            //while (lector.Read())
-            //{
-            //    Libros librorecibido = new Libros();
-
-            //    librorecibido.titulo = lector["titulo"].ToString();
-            //    librorecibido.autor = lector["autor"].ToString();
-            //    librorecibido.imagen = lector["tapa"].ToString();
-            //    librorecibido.sinopsis = lector["sinopsis"].ToString();
-            //    librorecibido.puntacion = Convert.ToInt32(lector["puntuacion"]);
-            //    listLibro.Add(librorecibido);
-            //}
-
-            //help.conn.Close();
+           
             return listLibro;
         }
 
@@ -251,6 +200,7 @@ namespace liber.Models
           Libros librorecibido = new Libros();
             while (lector.Read())
             {
+                librorecibido.id = Convert.ToInt32(lector["idLibro"]);
                 librorecibido.titulo = lector["titulo"].ToString();
                 librorecibido.autor = lector["autor"].ToString();
                 librorecibido.imagen = lector["tapa"].ToString();
@@ -316,11 +266,7 @@ namespace liber.Models
 
         }
 
-        public void GuardarUsuario(Usuarios users)
-        {
-            contra = users.contraseña;
-            user   = users.user;
-        }
+     
 
     }
 }

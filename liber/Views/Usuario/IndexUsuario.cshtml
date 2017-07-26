@@ -14,81 +14,85 @@
         }
 
     </style>
-    	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
 
-   
-
+ 
 
         <section id="slider">
-            <!--slider-->
+                <!--slider-->
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                @{
-                                    var activo = "active";
-                                    var cont = 0;
-                                    foreach (Banners UnBanner in ViewBag.listBanner)
-                                    {
-                                        <li data-target="#slider-carousel" data-slide-to="@cont"
-                                            @if (activo == "active") { @: class="Active"
-                                                                                        activo = ""; }>
-                                        </li>
 
-                                        cont++;
+    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+                                    @{
+                                        var activo = "active";
+                                  var cont = 0;
+                                        foreach (Banners UnBanner in ViewBag.listBanner)
+                                        {
+                                            <li data-target="#slider-carousel" data-slide-to="@cont"
+                                                @if (activo == "active") { @: class="Active"
+                                                                                            activo = ""; }>
+                                            </li>
+
+                                            cont++;
+                                        }
                                     }
-                                }
-                            </ol>
+                                </ol>
 
-                            <div class="carousel-inner">
-                                @{
-                                    activo = "active";
-                                    cont = 1;
-                                    foreach (Banners UnBanner in ViewBag.listBanner)
-                                    {
-                                        <div class="item @activo">
-                                            <div class="col-sm-6">
-                                                <img src="@Url.Content("~/Content/Admintemp/banner/")@UnBanner.Imagen" id="img@cont" class="girl img-responsive img" alt="" />
-                                            </div>
-                                            @{
-                                                cont++;
-                                                activo = "";
-                                            }
-                                        </div>
+                                <div class="carousel-inner">
+                                    @{
+                                        activo = "active";
+                                        cont = 1;
+                                        foreach (Banners UnBanner in ViewBag.listBanner)
+                                        {
+                                            <div class="item @activo">
+                                                <div class="col-sm-6">
+                                                    <img src="@Url.Content("~/Content/Admintemp/banner/")@UnBanner.Imagen" id="img@cont" class="ImagenSlide" alt="" />
+                                                </div>
+                                                @{
+                                                    cont++;
+                                                    activo = "";
                                                 }
-                                }
+                                            </div>
+                                        }
+                                    }
 
-                            </div>
+                                </div>
+
+    </div>
 
 
 
+                <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("item");
+        for (i = 0; i < x.length; i++) {
+           x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 3000); // Change image every 2 seconds
+    }
+                </script>
 
 
 
-                        </div>
-
-                        <a href.="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section><!--/slider-->
+            </section><!--/slider-->  
 
         <section id="libros">
             @*Lista de libros que contenga una minilista con detalles del libro*@
-
+           <h3></h3>
             <table>
 
 
@@ -181,15 +185,6 @@
                 }
             </table>
         </section>
-        <!--SCRIPT DEL SLIDE BOOK-->
-        <script type="text/javascript">
-            $('.carousel slide').bxSlider({
-                auto: true,
-                autoControls: true
-            });
-        </script>
-        <!--SCRIPT DEL SLIDE BOOK-->
-  
 
 
 </body>

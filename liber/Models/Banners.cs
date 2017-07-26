@@ -36,15 +36,6 @@ namespace liber.Models
         List<Banners> ListBanners = new List<Banners>();
 
       
-       
-
-        
-    
-
-     
-     
-
-
         public List<Banners> MostrarBanners(string consulta)
         {
             help.Abrir(consulta);

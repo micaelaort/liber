@@ -221,6 +221,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banners.cs" />
+    <Compile Include="Models\Comentarios.cs" />
     <Compile Include="Models\DBHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Libros.cs" />
@@ -451,7 +452,6 @@
     <Content Include="Content\mytemplatepagprincipal\vendor\tether\tether.min.js" />
     <Content Include="Content\search.png" />
     <Content Include="Content\Usuariotemp\css\animate.css" />
-    <Content Include="Content\Usuariotemp\css\bootstrap.min.css" />
     <Content Include="Content\Usuariotemp\css\buscar.css" />
     <Content Include="Content\Usuariotemp\css\common.css" />
     <Content Include="Content\Usuariotemp\css\demobuscar.css" />
@@ -772,6 +772,7 @@
     <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Admintemp\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Usuariotemp\fonthome.otf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.pdb" />
@@ -973,7 +974,6 @@
     <Content Include="Views\Admin\EliminarBanner.cshtml" />
     <Content Include="Views\Admin\AgregarBanner.cshtml" />
     <Content Include="Views\Admin\ModificarBanner.cshtml" />
-    <Content Include="Views\Usuario\search.cshtml" />
     <Content Include="Views\Libro\DetallesLibro.cshtml" />
     <Content Include="Views\Libro\ListadoLibroEncontrado.cshtml" />
     <Content Include="Views\Libro\ListadoLibroNoEncontrado.cshtml" />

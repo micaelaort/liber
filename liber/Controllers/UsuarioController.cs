@@ -27,12 +27,12 @@ namespace liber.Controllers
 
         {
 
-            //etc.
-            int idrecibido = usuario.GuardarUsuario(usuario);
-            usuario= usuario.TraerUsuarios(idrecibido);
-            Session["user"] = usuario;
-            var profileData = this.Session["user"] as Usuarios;
 
+            if (Request.Cookies["User"].Value != null)
+            {
+                string us = Request.Cookies["User"].Value.ToString();
+                usuario.id = usuario.TraerUsuarios(us);
+            }
 
             consulta = "SeleccionarBanners";
             listBanner = banner.MostrarBanners(consulta);
@@ -51,8 +51,7 @@ namespace liber.Controllers
         }
         public ActionResult search(Usuarios usuario)
         {
-            int idrecibido = usuario.GuardarUsuario(usuario);
-            usuario = usuario.TraerUsuarios(idrecibido);
+            
             listLibro =libros.Traer3libros();
             ViewBag.listalibros = listLibro;
             listAutores = libros.Traer3Autores();
@@ -64,7 +63,7 @@ namespace liber.Controllers
         public ActionResult search(Libros libro)
         {
             //Hago consulta que busca el libro, devuelve un bool
-            consulta = "buscar";
+            consulta = "Buscar";
             encontrado = libro.Encontrar(consulta, libro);
             if (encontrado == true)
             {

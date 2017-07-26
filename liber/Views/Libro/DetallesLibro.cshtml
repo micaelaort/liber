@@ -1,12 +1,12 @@
 ﻿@using liber.Models
-@model Libros
+@model Comentarios
 
 @{
     ViewBag.Title = "DetallesLibro";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <head>
-    <style>
+    @*<style>
         #imagen {
     width: 250px;
     margin-left: 10%;
@@ -20,38 +20,59 @@
         text-align:center;
         }
            
-    </style>
+    </style>*@
 
 </head>
 
-   
-        <h2 id="h2">@ViewBag.titulo</h2>
+   <body>
+    <h2 id="h2">@ViewBag.titulo</h2>
+       <div id="fb-root"></div>
+      
 
-       <div id="Contenedor">
-            <div id="Portada">
-                <img id="imagen"src="@Url.Content("~/Content/Usuariotemp/images/libros/")/@ViewBag.imagen" />
-            </div>
+    <div id="Contenedor">
+        <div id="Portada">
+            <img id="imagen" src="@Url.Content("~/Content/Usuariotemp/images/libros/")/@ViewBag.imagen" />
+        </div>
 
-            <div id="Detalles">
-                
+        <div id="Detalles">
+            <div>
                 <h4>autor: @ViewBag.autor</h4>
                 <h4>genero:@ViewBag.genero</h4>
                 <h4>sinopsis: @ViewBag.sinopsis</h4>
-                
-                <img class="estrellas" src="@ViewData["estrella1"]" /> 
+            </div>
+            <div>
+                <img class="estrellas" src="@ViewData["estrella1"]" />
                 <img class="estrellas" src="@ViewData["estrella2"]" />
-                <img class="estrellas" src="@ViewData["estrella3"]"  />  
-                <img class="estrellas" src="@ViewData["estrella4"]"/>
+                <img class="estrellas" src="@ViewData["estrella3"]" />
+                <img class="estrellas" src="@ViewData["estrella4"]" />
                 <img class="estrellas" src="@ViewData["estrella5"]" />
-                
-                <select>
-                    <option value="volvo">Quiero leerlo</option>
-                    <option value="saab">Lo lei</option>
-                    <option value="audi">Guardar en mi bibloteca</option>
-                </select>
-               
-
+            </div>
+            <div id="Grupo">
+                <button type="button" class="botones">Guardar en mi bibloteca</button>
+                <button type="button" class="botones">Lo quiero leer</button>
+                <button type="button" id="btn" class="botones" onclick="myFunction(this, 'red')">Lo lei</button>
+                <p id="demo"></p>
             </div>
 
-                    
-    
+
+        </div>
+      
+    </div>
+       <div id="Comentarios">
+           @{
+               foreach (Comentarios comen in (ViewBag.lista))
+               {
+                <ul>
+                    <li> @comen.Usuario</li>
+                    <li> @comen.Comentario</li>
+                </ul>
+               }
+        }
+        @using (@Html.BeginForm("DetallesLibro", "Libro", FormMethod.Post))
+        {
+               @Html.HiddenFor( x  => x.Libro, new { id= @ViewBag.titulo })
+               @Html.TextBoxFor(x => x.Comentario, new { Value = "", @class = "texto", placeholder = "Ingrese su comentario" })
+               <input type="submit" value="Enviar" />
+          }
+       </div>
+</body>

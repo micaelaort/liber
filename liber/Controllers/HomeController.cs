@@ -31,7 +31,6 @@ namespace liber.Controllers
             {
                 string consulta = "SeleccionarUsuarioLogin";
                Usuarios usuariobase= ouser.login(ouser,consulta);
-                
                 bool validarcontraseña=ouser.ValidarContraseña(ouser, usuariobase);
                 bool validarusuario = ouser.ValidarUsuario(ouser,usuariobase);
                 bool validaradmin = ouser.ValidarAdmin(usuariobase);
@@ -46,6 +45,10 @@ namespace liber.Controllers
                     }
                     else
                     {
+
+                        Response.Cookies["User"].Value = ouser.user;
+                        Response.Cookies["User"].Expires = DateTime.Now.AddHours(1);
+                       
                         return RedirectToAction("IndexUsuario", "Usuario", usuariobase);
                     }
 

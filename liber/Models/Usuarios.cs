@@ -34,7 +34,7 @@ namespace liber.Models
         public string confirmaciondecontraseña{ get; set; }
 
         public int id { get; set; }
-
+      
         public Usuarios UsuarioBaseDatos;
         public string Administrador;
         DBHelper help = new DBHelper();
@@ -154,19 +154,15 @@ namespace liber.Models
             }
         }
 
-        public int GuardarUsuario(Usuarios users)
-        {
-            int idrecbido = users.id;
-            return idrecbido;
-        }
+     
 
-        public Usuarios TraerUsuarios(int id)
+        public int TraerUsuarios(string user)
         {
             string consulta = "TraerUsuario";
             help.Abrir(consulta);
 
 
-            MySqlParameter parametro1 = new MySqlParameter("PID", id);
+            MySqlParameter parametro1 = new MySqlParameter("PUser",user);
             help.miCommand.Parameters.Add(parametro1);
             MySqlDataReader lector = help.miCommand.ExecuteReader();
             UsuarioBaseDatos = new Usuarios();
@@ -174,14 +170,11 @@ namespace liber.Models
             {
                
                 UsuarioBaseDatos.id = Convert.ToInt32(lector["idUsuario"]);
-                UsuarioBaseDatos.user = lector["usuario"].ToString();
-                UsuarioBaseDatos.contraseña = lector["password"].ToString();
-                UsuarioBaseDatos.Administrador = (lector["admin"].ToString());
-                UsuarioBaseDatos.id = Convert.ToInt32(lector["idUsuario"]);
 
+          
             }
             help.conn.Close();
-            return UsuarioBaseDatos;
+            return UsuarioBaseDatos.id;
         }
 
 
