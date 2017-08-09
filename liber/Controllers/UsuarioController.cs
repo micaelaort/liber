@@ -23,11 +23,8 @@ namespace liber.Controllers
         List<Libros> listAutores= new List<Libros>();
         // GET: Usuario
         public ActionResult IndexUsuario(Usuarios usuario)
-
-
-        {
-
-
+  {
+            Libros libro = new Libros();
             if (Request.Cookies["User"].Value != null)
             {
                 string us = Request.Cookies["User"].Value.ToString();
@@ -38,10 +35,11 @@ namespace liber.Controllers
             listBanner = banner.MostrarBanners(consulta);
             ViewBag.listBanner = listBanner;
 
-            Libros libro = new Libros();
-            consulta = "Libros5Usuarios";
-            listLibro = libro.SeleccionarLibrosUsuario(usuario.id, consulta);
-            ViewBag.listLibro = listLibro;
+            listLibro = new List<Libros>();
+            List<Libros> list2 = new List<Libros>();
+            listLibro=libro.EncontrarGenero(usuario.id);
+            list2 = libro.BuscarGenero(listLibro);
+            ViewBag.listLibro = list2;
             return View();
         }
 
@@ -52,10 +50,7 @@ namespace liber.Controllers
         public ActionResult search(Usuarios usuario)
         {
             
-            listLibro =libros.Traer3libros();
-            ViewBag.listalibros = listLibro;
-            listAutores = libros.Traer3Autores();
-            ViewBag.listaautores = listAutores;
+          
             return View();
         }
 

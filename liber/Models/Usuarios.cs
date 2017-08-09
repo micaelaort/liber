@@ -176,7 +176,26 @@ namespace liber.Models
             help.conn.Close();
             return UsuarioBaseDatos.id;
         }
+        public void AgregarGenero(int usuario, int genero)
+        {
+            string consulta = "AgregarRecomendado";
 
+            DBHelper help = new DBHelper();
+            help.AbrirConParametros(consulta);
+
+
+            MySqlParameter parametro1 = new MySqlParameter("PUser", usuario);
+            help.miCommand.Parameters.Add(parametro1);
+
+            MySqlParameter parametro2 = new MySqlParameter("PGenero", genero);
+            help.miCommand.Parameters.Add(parametro2);
+
+            help.miCommand.ExecuteNonQuery();
+            help.tran.Commit();
+            help.conn.Close();
+        }
+
+      
 
     }
 }

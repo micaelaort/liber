@@ -503,3 +503,5 @@ F:\liber\liber\bin\es\System.Web.WebPages.Razor.resources.dll
 F:\liber\liber\obj\Debug\liber.csprojResolveAssemblyReference.cache
 F:\liber\liber\obj\Debug\liber.dll
 F:\liber\liber\obj\Debug\liber.pdb
+F:\liber\liber\bin\Facebook.dll
+F:\liber\liber\bin\Facebook.xml
