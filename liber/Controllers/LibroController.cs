@@ -31,7 +31,12 @@ namespace liber.Controllers
         }
         public ActionResult DetallesLibro(string titulolibro)
         {
-            
+            if (Request.Cookies["User"].Value != null)
+            {
+                us = Request.Cookies["User"].Value.ToString();
+                usuario.id = usuario.TraerUsuarios(us);
+            }
+
             //Devuelve lista comentarios
             listacomentarios = comen.ListarComentarios(titulolibro);
             ViewBag.Lista = listacomentarios;
@@ -141,7 +146,7 @@ namespace liber.Controllers
             libro = libro.Opciones(Convert.ToInt32(idtitulo), usuario.id);
             ViewBag.Guardado = libro.guardado;
             ViewBag.Leido = libro.leido;
-
+            
             return View("DetallesLibro");
         }
 
@@ -162,21 +167,21 @@ namespace liber.Controllers
 
             }
             /*Agrego la opcion y traigo todo devuelta*/
-            if (opcion== "leidoseleccionado")
+            if (opcion== "leido")
             {
                 status = "true";
                 libro.ActualizarLeido(usuario.id, Convert.ToInt32(idtitulo),status);
             }
             else
             {
-                if (opcion == "leido")
+                if (opcion == "leidoseleccionado")
                 {
                     status = "false";
                     libro.ActualizarLeido(usuario.id, Convert.ToInt32(idtitulo),status);
                 }
                 else
                 {
-                    if (opcion == "biblotecaseleccionado")
+                    if (opcion == "bibloteca")
                     {
                         status = "true";
                         libro.ActualizarGuardado(usuario.id, Convert.ToInt32(idtitulo),status);
