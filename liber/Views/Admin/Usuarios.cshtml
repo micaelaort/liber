@@ -1,0 +1,79 @@
+﻿@using liber.Models
+@model Usuarios
+
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>Usuarios</h2>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tables
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i> Tables
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="TituloBanner">Usuarios</h2>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Bloqueado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+                                    como hacer que aparezca un objeto de una clase en una tabla*@
+
+                                @{foreach (Usuarios user in (ViewBag.lista))
+                                    {
+                                        <tr class="fila">
+
+                                            <td>@user.user</td>
+
+                                            @if (user.bloqueado == "true")
+                                            {
+                                            <td>true</td>
+                                            }
+                                            else
+                                            {
+                                                <td>false</td>
+                                            }
+
+                                            <td>
+                                                <!--lo que ve el usuario/view/controller/parametro-->
+                                                @Html.ActionLink("Bloquear", "BloquearUsuario", "Admin", new { iduser = user.id, bloqueado=user.bloqueado }, null)
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

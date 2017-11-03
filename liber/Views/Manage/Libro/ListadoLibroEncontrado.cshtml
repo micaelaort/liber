@@ -1,0 +1,40 @@
+﻿@using liber.Models
+@model Libros
+
+@{
+    ViewBag.Title = "ListadoLibroEncontrado";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<head>
+    <style>
+        #Busqueda {
+        display:grid;
+        margin-left:10%;
+        }
+        #Listado {
+        columns:5;
+        }
+
+    </style>
+</head>
+<div id="Busqueda">
+    <ul id="Listado">
+        <li>
+            @{foreach (Libros libro in (ViewBag.lista))
+            {
+                    <div id="Milibro">
+                        <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new {titulolibro=@libro.titulo})">
+                            <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
+                        </a>
+                        <h5>@libro.titulo</h5>
+                       
+                        @Html.ActionLink(@libro.autor, "Parametros", "Libro", new { parametro = libro.autor }, null)
+                    </div>
+
+                }
+
+
+            }
+        </li>
+    </ul>
+</div>

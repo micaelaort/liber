@@ -1,0 +1,36 @@
+﻿@using liber.Models
+@model Trivias
+@{
+    ViewBag.Title = "JugarTrivia";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>JugarTrivia</h2>
+
+<div id="FormBanner">
+    @using (Html.BeginForm("JugarTrivia", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {  @Html.HiddenFor(x => x.idpregunta)
+        <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                        <header class="masthead"></header>
+                        @Html.HiddenFor(x => x.idpregunta)
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Pregunta</label>
+                        </div>
+                        <label>@ViewBag.pregunta</label>
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">respuesta1</label>
+                        </div>
+
+        string res1 = ViewBag.res1; string res2 = ViewBag.res2; string res3 = ViewBag.res3;
+                            @Html.RadioButtonFor(x => x.respuestauser, 1)  <label>@ViewBag.res1</label>
+                            @Html.RadioButtonFor(x => x.respuestauser, 2)  <label>@ViewBag.res2</label>
+                            @Html.RadioButtonFor(x => x.respuestauser, 3)  <label>@ViewBag.res3</label>
+
+
+
+                        <button type="submit" onclick="onsave()">Agregar Banner</button>
+
+    }
+</div>

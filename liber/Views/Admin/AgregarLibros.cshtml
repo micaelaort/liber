@@ -1,0 +1,81 @@
+﻿@using liber.Models
+@model Libros
+@{
+    ViewBag.Title = "AgregarLibros";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>AgregarLibros</h2>
+
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Agregar Libro
+
+                </h1>
+
+
+                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+
+
+
+                <div id="FormBanner">
+                    @using (Html.BeginForm("AgregarLibros", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                    {
+                        <header class="masthead"></header>
+                        <div class="EtiquetasValidaciones">
+
+                            <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                            <label class="etiquetas">Titulo</label>@Html.ValidationMessageFor(x => x.titulo, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.titulo, new { @class = "texto", placeholder = "Ingrese titulo" })
+
+                        @Html.HiddenFor(x => x.id)
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Imagen</label>@Html.ValidationMessageFor(x => x.imagen, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.imagen, new { type = "file", @class = "texto", placeholder = "Ingrese imagen" })
+
+
+                        
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Sinopsis</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.sinopsis, new { @class = "texto", placeholder = "Ingrese sinopsis" })
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Genero</label>
+                        </div>
+                        @Html.DropDownListFor(x => x.genero, new SelectList(ViewBag.listagenero, "id", "nombre"))
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Autor</label>
+                        </div>
+                        @Html.DropDownListFor(x => x.autor, new SelectList(ViewBag.listaautores, "idautor", "nombre"))
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Visible</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.visible, new { @class = "texto", placeholder = "Ingrese false si no quiere ver el libro" })
+
+                        <button type="submit" onclick="onsave()">Agregar Libro</button>
+
+                    }
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

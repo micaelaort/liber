@@ -1,0 +1,83 @@
+﻿@using liber.Models
+@model Trivias
+@{
+    ViewBag.Title = "Trivias";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>Trivias</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Tables
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-table"></i> Tables
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 id="TituloBanner">Trivias</h2>
+
+                <a class="btn btn-lg btn-default" href=@Url.Action("AgregarTrivia","Admin")>Agregar banner</a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Imagen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*
+                                como hacer que aparezca un objeto de una clase en una tabla*@
+
+                            @{foreach (Trivias triv in (ViewBag.lista))
+                                {
+                                    <tr class="fila">
+
+                                        <td>@triv.nombre</td>
+                                        <td>
+                                            <img src="@Url.Content("~/Content/Usuariotemp/images/Trivias/")@triv.imagen" height="100" width="75" />
+                                        </td>
+
+
+    <td>
+    <!--lo que ve el usuario/view/controller/parametro-->
+    @Html.ActionLink("Modificar", "ModificarNombre", "Admin", new { id = triv.id }, null)
+    </td>
+
+<td>
+    <!--lo que ve el usuario/view/controller/parametro-->
+
+    @Html.ActionLink("Ver Preguntas", "VerPreguntas", "Admin", new { id = triv.id }, null)
+
+</td>
+                                        <td>
+                                            <!--lo que ve el usuario/view/controller/parametro-->
+
+                                            @Html.ActionLink("Eliminar", "EliminarTrivia", "Admin", new { id = triv.id }, null)
+
+                                        </td>                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+

@@ -1,0 +1,68 @@
+﻿@using liber.Models
+@model Trivias 
+@{
+    ViewBag.Title = "AgregarPregunta";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>AgregarPregunta</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Agregar Pregunta
+
+                </h1>
+
+
+                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+
+
+
+                <div id="FormBanner">
+                    @using (Html.BeginForm("AgregarPregunta", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                    {  @Html.HiddenFor(x => x.idpregunta)
+                        <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                        <header class="masthead"></header>
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Pregunta</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.pregunta, new { @class = "texto", placeholder = "Ingrese pregunta" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">respuesta1</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.respuesta1, new { @class = "texto", placeholder = "Ingrese respuesta1" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Respuesta2</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.respuesta2, new { @class = "texto", placeholder = "Ingrese respuesta2" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Respuesta3</label>
+                        </div>
+                        @Html.TextBoxFor(x => x.respuesta3, new { @class = "texto", placeholder = "Ingrese respuesta3" })
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Correcto</label>
+                        </div>
+                        @Html.DropDownListFor(x => x.correcto, new SelectList(ViewBag.listacorrecto, "correcto"))
+
+
+                        <button type="submit" onclick="onsave()">Agregar Pregunta</button>
+
+                    }
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

@@ -42,7 +42,7 @@
                         @Html.Label("Imagen")
                         <img height="100" width="75" src="@Url.Content("~/Content/Admintemp/banner/")@Model.Imagen" />
                         @Html.TextBoxFor(x => x.Imagen, new { type = "file" })<br />
-                        @Html.TextBoxFor(x => x.dtFechaInicio, "{0:yyyy-MM-dd}", new { Value = "@Model.dtFechaInicio", type = "date", @class = "texto" })
+                        @Html.TextBoxFor(x => x.dtFechaInicio, "{0:yyyy-MM-dd}", new {  type = "date", @class = "texto" })
 
                         @Html.TextBoxFor(x => x.dtFechaFinal, "{0:yyyy-MM-dd}", new { type = "date", @class = "texto" })
                         <input type="submit" value="modificar banner" /><br />

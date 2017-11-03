@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "CerrarSesion";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<ul id="MenuUser">
+    <li><a class="OpcionesUser" href="@Url.Action("MiBiblioteca","Usuario")">Mi Bibiloteca</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisLibros","Usuario")">Mis libros pendientes</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisEventos","Usuario")">Mis Eventos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisTrivias","Usuario")">Mis Trivias</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("ActualizarDatos","Usuario")">Actualizar datos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("CerrarSesion","Usuario")">Cerrar Sesión</a></li>
+</ul>
+<h2>CerrarSesion</h2>
+

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "VerEvento";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>VerEvento</h2>
+
+
+    
+    <h2> Evento: @ViewBag.titulo </h2>
+    <h2> Descripción: @ViewBag.descripcion</h2>
+    <h2> Fecha desde: @ViewBag.fecha</h2>
+   @{if (ViewBag.fechafinal != "1/1/0001")
+       {
+        <h2> Fecha hasta: @ViewBag.fechafinal</h2>
+           }
+        }
+    <h2> Comienza @ViewBag.horariocomienzo</h2>
+    @{if (ViewBag.horariofinal != "12:00 a. m.")
+        {
+            <h2> Termina: @ViewBag.horariofinal</h2>
+        }
+    }
+
+    <img src="@Url.Content("~/Content/Admintemp/evento/")@ViewBag.imagen" height="200" width="150" />
+
+
+@{
+    if (ViewBag.asistencia == "true")
+    { <form>
+
+<button>
+@Html.ActionLink("Estoy asistiendo", "Asistir", "Usuario", new { idevento = ViewBag.idevento, opcion = " " }, null)
+</button>
+</form>
+                }
+    else
+    {
+<form>
+
+    <button>
+        @Html.ActionLink("Voy a asistir", "Asistir", "Usuario", new { idevento= ViewBag.idevento, opcion = "true" }, null)
+    </button>
+</form>
+                    }
+
+                }

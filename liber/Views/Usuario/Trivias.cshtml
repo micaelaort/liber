@@ -1,0 +1,17 @@
+﻿@using liber.Models
+@model Trivias
+@{
+    ViewBag.Title = "Trivias";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Trivias</h2>
+
+@{foreach (Trivias triv in (ViewBag.lista))
+    {
+        <img src="@Url.Content("~/Content/Usuariotemp/images/Trivias/")@triv.imagen" height="100" width="75" />
+        
+        @Html.ActionLink(triv.nombre, "JugarTrivia", "Usuario", new { id = triv.id }, null)
+
+    }
+}

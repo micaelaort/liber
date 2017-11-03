@@ -1,0 +1,284 @@
+﻿@using liber.Models
+@model Comentarios
+
+@{
+    ViewBag.Title = "DetallesLibro";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<head>
+    <style>
+fieldset, label { margin: 0; padding: 0; }
+
+h1 { font-size: 1.5em; margin: 10px; }
+
+   
+    .Elegido{
+        background-color:red;
+    }  
+    
+      
+     </style>
+
+</head>
+
+   <body>
+       @* BOTON FACEBOOK *@
+       <div id="fb-root"></div>
+       <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10&appId=269359796888013";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <h2 id="h2">@ViewBag.titulo</h2>
+       <div id="fb-root"></div>
+      
+
+       <div id="Contenedor">
+           <div id="Portada">
+               <img id="imagen" src="@Url.Content("~/Content/Usuariotemp/images/libros/")/@ViewBag.imagen" />
+           </div>
+
+           <div id="Detalles">
+               <div>
+                   <h4>autor:</h4>
+                   @{ string autor = ViewBag.autor;
+                       @Html.ActionLink(autor, "Parametros", "Libro", new { parametro=autor }, null)                }
+                   <h4>genero</h4>
+                   @{ string genero = ViewBag.genero;
+                       @Html.ActionLink(genero, "Parametros", "Libro", new { parametro = genero }, null)                }
+                   <h4>sinopsis: @ViewBag.sinopsis</h4>
+                   <h4>puntuacion general: @ViewBag.puntuaciongeneral </h4>
+               </div>
+               <div>
+                   @{
+                       if (ViewBag.Leido == "true")
+                       { <form>
+
+                       <button>
+                           @Html.ActionLink("Lo estoy leyendo", "Opciones", "Libro", new { idevento = ViewBag.idevento, opcion = "loquieroleer" }, null)
+                       </button>
+                   </form>
+                       }
+                       else
+                       {
+                           <form>
+
+                               <button>
+                                   @Html.ActionLink("Lo quiero leer", "Opciones", "Libro", new { opcion="leido" }, null)
+                               </button>
+                           </form>
+                       }
+                       if (ViewBag.Guardado == "true")
+                       { <form>
+
+                    <button>
+                        @Html.ActionLink("Guardado en mi biblioteca", "Opciones", "Libro", new { idevento = ViewBag.idevento, opcion = "biblotecaseleccionado" }, null)
+                    </button>
+                </form>
+                       }
+                       else
+                       {
+                        <form>
+
+                            <button>
+                                @Html.ActionLink("Lo quiero guardar en mi biblioteca", "Opciones", "Libro", new { opcion = "bibloteca" }, null)
+                            </button>
+                        </form>
+                       }
+
+                }
+                 
+
+               </div>
+               <div>
+
+                   @using (@Html.BeginForm("Calificar", "Libro", FormMethod.Post))
+                   {
+                       Comentarios comen = new Comentarios();
+                       comen.puntuacionusuario = ViewBag.puntuacion;
+                       int h = Convert.ToInt32(comen.puntuacionusuario);
+
+                       switch (h)
+                       {
+                           case 0:
+                            <fieldset class="rating" id="h">
+
+                                @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="full" for="star1" title="Sucks big time - 1 star"></label>
+
+                            </fieldset>
+                               break;
+
+                           case 1:
+                               <fieldset class="rating" id="h">
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="notfull" for="star1" title="Sucks big time - 1 star"></label>
+
+                               </fieldset>
+                               break;
+                           case 2:
+                               <fieldset class="rating" id="h">
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="full" for="star3" title="Meh - 3 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="notfull" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="notfull" for="star1" title="Sucks big time - 1 star"></label>
+
+                               </fieldset>
+                               break;
+                           case 3:
+                               <fieldset class="rating" id="h">
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="notfull" for="star3" title="Meh - 3 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="notfull" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="notfull" for="star1" title="Sucks big time - 1 star"></label>
+
+                               </fieldset>
+                               break;
+                           case 4:
+                               <fieldset class="rating" id="h">
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="full" for="star5" title="Awesome - 5 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="notfull" for="star4" title="Pretty good - 4 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="notfull" for="star3" title="Meh - 3 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="notfull" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="notfull" for="star1" title="Sucks big time - 1 star"></label>
+
+                               </fieldset>
+                               break;
+                           case 5:
+                               <fieldset class="rating" id="h">
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "5", @id = "star5", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star5" name="rating" value="5" />*@<label class="notfull" for="star5" title="Awesome - 5 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "4", @id = "star4", Type = "radio", @name = "rating2" })
+                                   @*<input type="radio" id="star4" name="rating" value="4" />*@<label class="notfull" for="star4" title="Pretty good - 4 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "3", @id = "star3", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star3" name="rating" value="3" />*@<label class="notfull" for="star3" title="Meh - 3 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "2", @id = "star2", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star2" name="rating" value="2" />*@<label class="notfull" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                   @Html.TextBoxFor(x => x.puntuacionusuario, new { @Value = "1", @id = "star1", Type = "radio", @name = "rating" })
+                                   @*<input type="radio" id="star1" name="rating" value="1" />*@<label class="notfull" for="star1" title="Sucks big time - 1 star"></label>
+
+                               </fieldset>
+                               break;
+
+                       }
+
+                       <input type="submit" value="Enviar" />
+                   }
+
+               </div>
+
+           </div>
+       </div>
+       <div id="BotonesRedes">
+       @* GOOGLEPLUS *@
+           <!-- Place this tag where you want the share button to render. -->
+           <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60" data-href="http://www.instinctcoder.com"></div>
+
+           <!-- Place this tag after the last share tag. -->
+           <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+           </script>
+           @* GOOGLEPLUS *@
+           @* TWITTER *@
+           <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://instinctcoder.com" data-text="#EstoyLeyendoConLiber" data-via="instinctcoder" data-count="vertical">Tweet</a>
+           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+           @* TWITTER *@
+           @* FACEBOOK *@
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Compartir</a></div>
+           @* FACEBOOK *@
+       </div>
+               <div id="Comentarios">
+                   @{
+                       foreach (Comentarios comen in (ViewBag.lista))
+                       {
+                           <ul>
+                               <li> @comen.Usuario</li>
+                          
+                              @if (ViewBag.usuario == ViewBag.usuariocomentario)
+                              { 
+                               <li> @comen.Comentario @Html.ActionLink("Eliminar Comentario", "EliminarComentario", "Libro", new { id = comen.idComentario}, null)</li>
+                              }
+                            </ul>
+                       }
+                   }
+                   @using (@Html.BeginForm("DetallesLibro", "Libro", FormMethod.Post))
+                   {
+                       @Html.HiddenFor(x => x.Libro, new { id = @ViewBag.titulo })
+                       @Html.TextBoxFor(x => x.Comentario, new { Value = "", @class = "texto", placeholder = "Ingrese su comentario" })
+                       
+                       <input type="submit" value="Enviar" />
+                   }
+               </div>
+          
+       
+</body>

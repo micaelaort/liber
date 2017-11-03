@@ -1,0 +1,70 @@
+﻿@using liber.Models
+@model Eventos
+@{
+    ViewBag.Title = "MisEventos";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<ul id="MenuUser">
+    <li><a class="OpcionesUser" href="@Url.Action("MiBiblioteca","Usuario")">Mi Bibiloteca</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisLibros","Usuario")">Mis libros pendientes</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisEventos","Usuario")">Mis Eventos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisTrivias","Usuario")">Mis Trivias</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("ActualizarDatos","Usuario")">Actualizar datos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("CerrarSesion","Usuario")">Cerrar Sesión</a></li>
+</ul>
+
+
+<body>
+
+    <div class="Opcion">
+       
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="Tituloevento">eventos</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Imagen</th>
+                                    <th>Descripcion</th>
+                                    <th>Fecha desde</th>
+                                    <th>Fecha hasta</th>
+                                    <th>Horario desde</th>
+                                    <th>Horario hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+                                    como hacer que aparezca un objeto de una clase en una tabla*@
+
+                                @{foreach (Eventos evento in (ViewBag.listEvento))
+                                    {
+                                        <tr class="fila">
+
+                                            <td>@evento.titulo</td>
+
+                                            <td>
+
+                                                <img src="@Url.Content("~/Content/Admintemp/evento/")@evento.imagen" height="100" width="75" />
+                                            </td>
+
+                                            <td>@evento.descripcion</td>
+                                            <td>@evento.fecha.ToShortDateString()</td>
+                                            <td>@evento.fechafinal.ToShortDateString()</td>
+                                            <td>@evento.horariocomienzo.ToShortTimeString()</td>
+                                            <td>@evento.horariofinal.ToShortTimeString()</td>
+                                          
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>  

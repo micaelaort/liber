@@ -27,49 +27,57 @@ namespace liber.Controllers
 
         public ActionResult Model(Usuarios ouser)
         {
-            if (ouser.user!=" " && ouser.contraseña!=" ")
+            if (ouser.user != " " && ouser.contraseña != " ")
             {
-                string consulta = "SeleccionarUsuarioLogin";
-               Usuarios usuariobase= ouser.login(ouser,consulta);
-                bool validarcontraseña=ouser.ValidarContraseña(ouser, usuariobase);
-                bool validarusuario = ouser.ValidarUsuario(ouser,usuariobase);
-                bool validaradmin = ouser.ValidarAdmin(usuariobase);
-                if (validarcontraseña && validarusuario)
+                string consulta = "SeleccionarUsuarioLogin";Usuarios usuariobase = ouser.login(ouser, consulta);
+                if (usuariobase.bloqueado != "true")
                 {
-                    //agregar if que si es admin haga tal cosa.
-                  
-                    if(validaradmin)
-                    {
-                        ViewBag.Message = "Usted es admin";
-                        return RedirectToAction("IndexAdmin","Admin");
-                    }
-                    else
-                    {
 
-                        Response.Cookies["User"].Value = ouser.user;
-                        Response.Cookies["User"].Expires = DateTime.Now.AddHours(1);
-                       
-                        return RedirectToAction("IndexUsuario", "Usuario", usuariobase);
-                    }
+                    
+                    bool validarcontraseña = ouser.ValidarContraseña(ouser, usuariobase);
+                    bool validarusuario = ouser.ValidarUsuario(ouser, usuariobase);
+                    bool validaradmin = ouser.ValidarAdmin(usuariobase);
+                    if (validarcontraseña && validarusuario)
+                    {
+                        //agregar if que si es admin haga tal cosa.
 
+                        if (validaradmin)
+                        {
+                            ViewBag.Message = "Usted es admin";
+                            return RedirectToAction("IndexAdmin", "Admin");
                         }
                         else
                         {
-                    ViewBag.mensaje = " El usuario o contraseña es invalido";
-                    return View("Model");
+
+                            Response.Cookies["User"].Value = ouser.user;
+                            Response.Cookies["User"].Expires = DateTime.Now.AddHours(1);
+
+                            return RedirectToAction("IndexUsuario", "Usuario", usuariobase);
                         }
 
+                    }
+                    else
+                    {
+                        ViewBag.mensaje = " El usuario o contraseña es invalido";
+                        return View("Model");
+                    }
 
+
+
+                }
+                else
+                {ViewBag.mensaje = "Usted ha sido bloquedo";
+
+                    return View("Model");
+                }
             }
             else
             {
-              
+                
                 return View("Model");
             }
 
 
-
-          
         }
 
         

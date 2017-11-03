@@ -1,0 +1,80 @@
+﻿@using liber.Models
+@model Libros
+@{
+    ViewBag.Title = "Libros";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>Libros</h2>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tables
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i> Tables
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="TituloBanner">Libros</h2>
+
+                    <a class="btn btn-lg btn-default" href=@Url.Action("AgregarLibros","Admin")>Agregar libro</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Sinopsis</th>
+                                    <th>Autor</th>
+                                    <th>Genero</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+                                    como hacer que aparezca un objeto de una clase en una tabla*@
+
+                                @{foreach (Libros libro in (ViewBag.lista))
+                                    {
+                                        <tr class="fila">
+
+                                            <td>@libro.titulo</td>
+                                            <td>@libro.sinopsis</td>
+                                            <td>@libro.autor</td>
+                                            <td>@libro.genero</td>
+                                            <td>
+                                                <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="100" width="75" />
+                                            </td>
+
+
+                                            <td>
+                                                <!--lo que ve el usuario/view/controller/parametro-->
+                                                @Html.ActionLink("Modificar", "ModificarLibros", "Admin", new { idlibro= libro.id  }, null)
+                                              
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

@@ -1,0 +1,81 @@
+﻿@using liber.Models
+@model Eventos
+@{
+    ViewBag.Title = "ModificarEvento";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>ModificarEvento</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                   Modificar Eventos
+
+                </h1>
+
+
+                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+
+
+
+
+
+                <div id="FormBanner">
+    @using (Html.BeginForm("ModificarEvento", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+        <header class="masthead"></header>
+                        <div class="EtiquetasValidaciones">
+
+                            <h3 id="ErrorFecha">@ViewBag.mensaje</h3>
+                            <label class="etiquetas">Titulo</label>@Html.ValidationMessageFor(x => x.titulo, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.titulo, new { @class = "texto", placeholder = "Ingrese titulo" })
+
+                        @Html.HiddenFor(x => x.idevento)
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">Imagen</label>@Html.ValidationMessageFor(x => x.imagen, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.imagen, new { type = "file", @class = "texto", placeholder = "Ingrese imagen" })
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">fecha</label>@Html.ValidationMessageFor(x => x.fecha, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.fecha, "{0:yyyy-MM-dd}", new { type = "date", @class = "texto" })
+
+                      
+                        @Html.TextBoxFor(x => x.fechafinal, "{0:yyyy-MM-dd}", new { type = "date", @class = "texto", })
+
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">horario comienzo</label>@Html.ValidationMessageFor(x => x.fecha, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.horariocomienzo, "{0:HH:MM}", new {type = "time", @class = "texto", })
+
+                        
+                        @Html.TextBoxFor(x => x.horariofinal, "{0:HH:MM}",  new {  type = "time", @class = "texto" })
+
+
+                        <div class="EtiquetasValidaciones">
+                            <label class="etiquetas">descripcion</label>@Html.ValidationMessageFor(x => x.descripcion, null, new { @class = "validaciones" })
+                        </div>
+                        @Html.TextBoxFor(x => x.descripcion, new { @class = "texto", placeholder = "Ingrese descripcion" })
+
+                        <button type="submit" onclick="onsave()">Modificar Evento</button>
+
+                    }
+                </div>
+
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

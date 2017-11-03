@@ -1,0 +1,47 @@
+﻿@using liber.Models
+@model Libros
+@{
+    ViewBag.Title = "MisLibros";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<ul id="MenuUser">
+    <li><a class="OpcionesUser" href="@Url.Action("MiBiblioteca","Usuario")">Mi Bibiloteca</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisLibros","Usuario")">Mis libros pendientes</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisEventos","Usuario")">Mis Eventos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisTrivias","Usuario")">Mis Trivias</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("ActualizarDatos","Usuario")">Actualizar datos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("CerrarSesion","Usuario")">Cerrar Sesión</a></li>
+</ul>
+
+<div class="OpcionMisLibros">
+<ul class="Listalibros">
+   
+
+        @{
+
+            <li class="Columnas">
+                @foreach (Libros libro in (ViewBag.listalibros))
+                {
+
+                    <div class="Tapa">
+                        <a class="imagenes" href="@Url.Action("DetallesLibro", "Libro", new { titulolibro = @libro.titulo })">
+                            <img src="@Url.Content("~/Content/Usuariotemp/images/libros/")@libro.imagen" height="200" width="150" />
+                        </a>
+                    </div>
+                <div class="Autor">
+
+                    <h5>@libro.titulo</h5>
+
+                    @Html.ActionLink(libro.autor, "Parametros", "Libro", new { parametro = libro.autor }, null)
+                </div>
+
+
+                }
+            </li>
+
+        }
+
+
+    </ul>
+</div>

@@ -224,12 +224,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Autores.cs" />
     <Compile Include="Models\Banners.cs" />
     <Compile Include="Models\Comentarios.cs" />
     <Compile Include="Models\DBHelper.cs" />
+    <Compile Include="Models\Eventos.cs" />
+    <Compile Include="Models\Generos.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Libros.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Trivias.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -312,6 +316,7 @@
     <Content Include="Content\Admintemp\css\plugins\morris.css" />
     <Content Include="Content\Admintemp\css\sb-admin-rtl.css" />
     <Content Include="Content\Admintemp\css\sb-admin.css" />
+    <Content Include="Content\Admintemp\evento\FondoContacto.jpg" />
     <Content Include="Content\Admintemp\font-awesome\css\font-awesome.css" />
     <Content Include="Content\Admintemp\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\Admintemp\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -333,6 +338,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Google+.png" />
     <Content Include="Content\imagen\login.jpg" />
     <Content Include="Content\mytemplatepagprincipal\css\paginaprincipal.css" />
     <Content Include="Content\mytemplatepagprincipal\css\paginaprincipal.min.css" />
@@ -978,17 +984,49 @@
     <Content Include="Views\Admin\EliminarBanner.cshtml" />
     <Content Include="Views\Admin\AgregarBanner.cshtml" />
     <Content Include="Views\Admin\ModificarBanner.cshtml" />
-    <Content Include="Views\Libro\DetallesLibro.cshtml" />
-    <Content Include="Views\Libro\ListadoLibroEncontrado.cshtml" />
+    <Content Include="Views\Manage\Libro\DetallesLibro.cshtml" />
+    <Content Include="Views\Manage\Libro\ListadoLibroEncontrado.cshtml" />
+    <Content Include="Views\Manage\Libro\Vermas.cshtml" />
+    <Content Include="Views\Manage\Libro\Calificar.cshtml" />
+    <Content Include="Views\Manage\Libro\Opciones.cshtml" />
+    <Content Include="Views\Manage\Libro\EliminarComentario.cshtml" />
+    <Content Include="Views\Manage\Libro\Parametros.cshtml" />
+    <Content Include="Views\Usuario\MiCuenta.cshtml" />
+    <Content Include="Views\Usuario\MisLibros.cshtml" />
+    <Content Include="Views\Usuario\MiBiblioteca.cshtml" />
+    <Content Include="Views\Admin\VerEventos.cshtml" />
+    <Content Include="Views\Admin\AgregarEventos.cshtml" />
+    <Content Include="Views\Admin\EliminarEventos.cshtml" />
+    <Content Include="Views\Admin\ModificarEvento.cshtml" />
+    <Content Include="Views\Usuario\Asistir.cshtml" />
+    <Content Include="Views\Usuario\VerEvento.cshtml" />
+    <Content Include="Views\Usuario\MisEventos.cshtml" />
+    <Content Include="Views\Usuario\MisTrivias.cshtml" />
+    <Content Include="Views\Usuario\ActualizarDatos.cshtml" />
+    <Content Include="Views\Usuario\CerrarSesion.cshtml" />
+    <Content Include="Views\Admin\Genero.cshtml" />
+    <Content Include="Views\Admin\ModificarGenero.cshtml" />
+    <Content Include="Views\Admin\AgregarGenero.cshtml" />
+    <Content Include="Views\Admin\Libros.cshtml" />
+    <Content Include="Views\Admin\ModificarLibros.cshtml" />
+    <Content Include="Views\Admin\AgregarLibros.cshtml" />
+    <Content Include="Views\Admin\Usuarios.cshtml" />
+    <Content Include="Views\Admin\BloquearUsuario.cshtml" />
+    <Content Include="Views\Admin\Trivias.cshtml" />
+    <Content Include="Views\Admin\AgregarTrivia.cshtml" />
+    <Content Include="Views\Admin\ModificarNombre.cshtml" />
+    <Content Include="Views\Admin\VerPreguntas.cshtml" />
+    <Content Include="Views\Admin\ModificarPregunta.cshtml" />
+    <Content Include="Views\Usuario\Trivias.cshtml" />
+    <Content Include="Views\Usuario\JugarTrivia.cshtml" />
+    <Content Include="Views\Admin\AgregarPregunta.cshtml" />
+    <Content Include="Views\Usuario\Ranking.cshtml" />
     <Content Include="Views\Libro\ListadoLibroNoEncontrado.cshtml" />
-    <Content Include="Views\Libro\Vermas.cshtml" />
-    <Content Include="Views\Libro\Calificar.cshtml" />
-    <Content Include="Views\Libro\Opciones.cshtml" />
-    <Content Include="Views\Libro\EliminarComentario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Admintemp\banner\" />
+    <Folder Include="Content\Usuariotemp\images\Trivias\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

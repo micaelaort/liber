@@ -1,0 +1,79 @@
+﻿@using liber.Models
+@model Eventos
+@{
+    ViewBag.Title = "VerEventos";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>VerEventos</h2>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                     <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                        </li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="Tituloevento">eventos</h2>
+
+                    <a class="btn btn-lg btn-default" href=@Url.Action("AgregarEventos","Admin")>Agregar Evento</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Titulo</th>
+                                    <th>Imagen</th>
+                                    <th>Descripcion</th>
+                                    <th>Fecha desde</th>
+                                    <th>Fecha hasta</th>
+                                    <th>Horario desde</th>
+                                    <th>Horario hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+                                    como hacer que aparezca un objeto de una clase en una tabla*@
+
+                                @{foreach (Eventos evento in (ViewBag.listEvento))
+                                    {
+                                        <tr class="fila">
+
+                                            <td>@evento.titulo</td>
+
+                                            <td>
+
+                                             <img src="@Url.Content("~/Content/Admintemp/evento/")@evento.imagen" height="100" width="75" />
+                                            </td>
+
+                                            <td>@evento.descripcion</td>
+                                            <td>@evento.fecha.ToShortDateString()</td>
+                                            <td>@evento.fechafinal.ToShortDateString()</td>
+                                            <td>@evento.horariocomienzo.ToShortTimeString()</td>
+                                            <td>@evento.horariofinal.ToShortTimeString()</td>
+                                            <td>
+                                                <!--lo que ve el usuario/view/controller/parametro-->
+                                                @Html.ActionLink("Modificar", "ModificarEvento", "Admin", new { idevento = @evento.idevento}, null)
+                                                @Html.ActionLink("Eliminar", "EliminarEventos", "Admin", new { idevento = @evento.idevento }, null)
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>  

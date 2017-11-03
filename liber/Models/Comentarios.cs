@@ -16,11 +16,12 @@ namespace liber.Models
     {
         public string Comentario { get; set; }
         public int idComentario { get; set; }
+        public int idUsuarioComentario { get; set; }
         public string Libro { get; set; }
         public string Usuario { get; set; }
         string consulta;
         public int bibloteca { get; set; }
-        public double puntuacionusuario { get; set; }
+        public int puntuacionusuario { get; set; }
         public int Promedio;
         DBHelper help = new DBHelper();
         List<Comentarios> ListaComentarios = new List<Comentarios>(); 
@@ -98,6 +99,25 @@ namespace liber.Models
             help.miCommand.ExecuteNonQuery();
             help.tran.Commit();
             help.conn.Close();
+        }
+
+        public int PuntuacionUsuario(int iduser, int idlibro)
+        { Comentarios comentario = new Comentarios();
+            consulta = "SeleccionarPuntuacionUser";
+            help.AbrirConParametros(consulta);
+            MySqlParameter parametro1 = new MySqlParameter("PLibro", idlibro);
+            help.miCommand.Parameters.Add(parametro1);
+            MySqlParameter parametro2 = new MySqlParameter("PUser", iduser);
+            help.miCommand.Parameters.Add(parametro2);
+            MySqlDataReader lector = help.miCommand.ExecuteReader();
+            while (lector.Read())
+            {
+                
+                comentario.puntuacionusuario = Convert.ToInt32(lector["PuntuacionUser"]);
+             }
+        
+            help.conn.Close();
+            return comentario.puntuacionusuario;
         }
     }
 }

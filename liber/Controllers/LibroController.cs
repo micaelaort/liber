@@ -23,7 +23,7 @@ namespace liber.Controllers
         string id;
         int idTitulo;
         string status;
-        Usuarios usuario= new Usuarios();
+        Usuarios usuario = new Usuarios();
         // GET: Libro
         public ActionResult Index()
         {
@@ -36,6 +36,7 @@ namespace liber.Controllers
                 us = Request.Cookies["User"].Value.ToString();
                 usuario.id = usuario.TraerUsuarios(us);
             }
+            ViewBag.usuario = usuario.id;
 
             //Devuelve lista comentarios
             listacomentarios = comen.ListarComentarios(titulolibro);
@@ -44,11 +45,14 @@ namespace liber.Controllers
             consulta = "BuscarTitulo";
             libro = libro.BuscarLibro(consulta, titulolibro);
             ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.promedio;
+            ViewBag.puntuaciongeneral = libro.promedio;
+            ViewBag.puntuacion = comen.PuntuacionUsuario(usuario.id, libro.id);
             ViewBag.autor = libro.autor;
             ViewBag.genero = libro.genero;
             ViewBag.sinopsis = libro.sinopsis;
             ViewBag.imagen = libro.imagen;
+
+            usuario.AgregarGenero(usuario.id, libro.idgenero);
             //Obtengo el usuario
             Response.Cookies["Titulo"].Value = libro.titulo;
             Response.Cookies["Titulo"].Expires = DateTime.Now.AddHours(1);
@@ -56,40 +60,108 @@ namespace liber.Controllers
             Response.Cookies["IdTitulo"].Expires = DateTime.Now.AddHours(1);
             Response.Cookies["Genero"].Value = libro.idgenero.ToString();
             Response.Cookies["Genero"].Expires = DateTime.Now.AddHours(1);
-      
-            libro = libro.Opciones(libro.id,usuario.id);
+            libro = libro.Opciones(libro.id, usuario.id);
             ViewBag.Guardado = libro.guardado;
-            ViewBag.Leido    = libro.leido;
+            ViewBag.Leido = libro.leido;
+            ViewBag.usuariocomentario = comen.idUsuarioComentario;
+
             return View();
         }
         [HttpPost]
-        public ActionResult DetallesLibro(Comentarios comentar)
+        public ActionResult DetallesLibro(Comentarios comentar, string opcion)
         {
             //Obtengo los datos 
             if (Request.Cookies["User"].Value != null)
             {
-               us = Request.Cookies["User"].Value.ToString();
-               usuario.id = usuario.TraerUsuarios(us);
+                us = Request.Cookies["User"].Value.ToString();
+                usuario.id = usuario.TraerUsuarios(us);
             }
 
             if (Request.Cookies["IdTitulo"].Value != null)
             {
-              idtitulo= Request.Cookies["IdTitulo"].Value.ToString();
-              titulo = Request.Cookies["Titulo"].Value.ToString();
+                idtitulo = Request.Cookies["IdTitulo"].Value.ToString();
+                titulo = Request.Cookies["Titulo"].Value.ToString();
 
             }
+              /*Agrego la opcion y traigo todo devuelta*/
+            bool estaagendado = libro.EstaAgendado(libro.id, usuario.id);
+
+            if (estaagendado)
+            {
+                if (opcion == "leido")
+                {
+                    status = "true";
+                    libro.ActualizarLeido(usuario.id, libro.id, status);
+                }
+                else
+                {
+                    if (opcion == "leidoseleccionado")
+                    {
+                        status = "false";
+                        libro.ActualizarLeido(usuario.id, libro.id, status);
+                    }
+                    else
+                    {
+                        if (opcion == "bibloteca")
+                        {
+                            status = "true";
+                            libro.ActualizarGuardado(usuario.id, libro.id, status);
+                        }
+                        else
+                        {
+                            status = "false";
+                            libro.ActualizarGuardado(usuario.id, libro.id, status);
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                /*SI NO ESTA AGENDADO EN TABLA LEIDOS*/
+                if (opcion == "leido")
+                {
+                    status = "true";
+                    libro.AñadirLeido(usuario.id, libro.id, status);
+                }
+                else
+                {
+                    if (opcion == "leidoseleccionado")
+                    {
+                        status = "false";
+                        libro.AñadirLeido(usuario.id, libro.id, status);
+                    }
+                    else
+                    {
+                        if (opcion == "bibloteca")
+                        {
+                            status = "true";
+                            libro.AñadirGuardado(usuario.id, libro.id, status);
+                        }
+                        else
+                        {
+                            status = "false";
+                            libro.AñadirGuardado(usuario.id, libro.id, status);
+                        }
+                    }
+                }
+
+
+            }
+                     
             //Agrego el comentario
-             comentar.AgregarComentario(idtitulo, usuario.id, comentar.Comentario);
+            comentar.AgregarComentario(idtitulo, usuario.id, comentar.Comentario);
             //Devuelve lista comentarios
             listacomentarios = new List<Comentarios>();
-            listacomentarios= comen.ListarComentarios(titulo);
+            listacomentarios = comen.ListarComentarios(titulo);
             ViewBag.Lista = listacomentarios;
             consulta = "BuscarTitulo";
             libro = new Libros();
-            libro = libro.BuscarLibro(consulta, titulo);           
+            libro = libro.BuscarLibro(consulta, titulo);
             ViewBag.id = libro.id;
             ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.promedio;
+            ViewBag.puntuaciongeneral = libro.promedio;
+            ViewBag.puntuacion = comen.PuntuacionUsuario(usuario.id, libro.id);
             ViewBag.autor = libro.autor;
             ViewBag.genero = libro.genero;
             ViewBag.sinopsis = libro.sinopsis;
@@ -97,23 +169,24 @@ namespace liber.Controllers
             libro = libro.Opciones(Convert.ToInt32(idtitulo), usuario.id);
             ViewBag.Guardado = libro.guardado;
             ViewBag.Leido = libro.leido;
-            
+
             return View(comen);
         }
-   
+
         public ActionResult Calificar(Comentarios com)
         {
-            
+
             if (Request.Cookies["IdTitulo"].Value != null)
             {
-                
-               idTitulo = Convert.ToInt32(Request.Cookies["IdTitulo"].Value.ToString());
+
+                idTitulo = Convert.ToInt32(Request.Cookies["IdTitulo"].Value.ToString());
                 us = Request.Cookies["User"].Value.ToString();
                 usuario.id = usuario.TraerUsuarios(us);
 
             }
             //Recibo la punt, la mando a la base de datos y saco promedio
-            comen.AgregarPuntuacion(com.puntuacionusuario,idTitulo,usuario.id);
+            comen.EliminarPuntuacion(idTitulo, usuario.id);
+            comen.AgregarPuntuacion(com.puntuacionusuario, idTitulo, usuario.id);
 
             //Obtengo los datos 
             if (Request.Cookies["User"].Value != null)
@@ -128,7 +201,7 @@ namespace liber.Controllers
                 titulo = Request.Cookies["Titulo"].Value.ToString();
 
             }
-           
+
             //Devuelve lista comentarios
             listacomentarios = new List<Comentarios>();
             listacomentarios = comen.ListarComentarios(titulo);
@@ -138,7 +211,8 @@ namespace liber.Controllers
             libro = libro.BuscarLibro(consulta, titulo);
             ViewBag.id = libro.id;
             ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.promedio;
+            ViewBag.puntuaciongeneral = libro.promedio;
+            ViewBag.puntuacion = comen.PuntuacionUsuario(usuario.id, libro.id);
             ViewBag.autor = libro.autor;
             ViewBag.genero = libro.genero;
             ViewBag.sinopsis = libro.sinopsis;
@@ -146,10 +220,10 @@ namespace liber.Controllers
             libro = libro.Opciones(Convert.ToInt32(idtitulo), usuario.id);
             ViewBag.Guardado = libro.guardado;
             ViewBag.Leido = libro.leido;
-            
+
             return View("DetallesLibro");
         }
-
+        
         public ActionResult Opciones(string opcion)
         {
             libro = new Libros();
@@ -162,41 +236,77 @@ namespace liber.Controllers
 
             if (Request.Cookies["IdTitulo"].Value != null)
             {
-                idtitulo = Request.Cookies["IdTitulo"].Value.ToString();
-                libro.titulo= Request.Cookies["Titulo"].Value.ToString();
+                libro.id = Convert.ToInt32(Request.Cookies["IdTitulo"].Value);
+                libro.titulo = Request.Cookies["Titulo"].Value.ToString();
 
             }
             /*Agrego la opcion y traigo todo devuelta*/
-            if (opcion== "leido")
+            bool estaagendado = libro.EstaAgendado(libro.id, usuario.id);
+
+            if (estaagendado)
             {
-                status = "true";
-                libro.ActualizarLeido(usuario.id, Convert.ToInt32(idtitulo),status);
-            }
-            else
-            {
-                if (opcion == "leidoseleccionado")
+                if (opcion == "leido")
                 {
-                    status = "false";
-                    libro.ActualizarLeido(usuario.id, Convert.ToInt32(idtitulo),status);
+                    status = "true";
+                    libro.ActualizarLeido(usuario.id, libro.id, status);
                 }
                 else
                 {
-                    if (opcion == "bibloteca")
+                    if (opcion == "loquieroleer")
                     {
-                        status = "true";
-                        libro.ActualizarGuardado(usuario.id, Convert.ToInt32(idtitulo),status);
+                        status = "false";
+                        libro.ActualizarLeido(usuario.id, libro.id, status);
                     }
                     else
                     {
-                        status = "false";
-                        libro.ActualizarGuardado(usuario.id, Convert.ToInt32(idtitulo),status);
+                        if (opcion == "bibloteca")
+                        {
+                            status = "true";
+                            libro.ActualizarGuardado(usuario.id, libro.id, status);
+                        }
+                        else
+                        {
+                            status = "false";
+                            libro.ActualizarGuardado(usuario.id, libro.id, status);
+                        }
                     }
                 }
-                
             }
 
-            
-            
+            else
+            {
+                /*SI NO ESTA AGENDADO EN TABLA LEIDOS*/
+                if (opcion == "leido")
+                {
+                    status = "true";
+                    libro.AñadirLeido(usuario.id, libro.id, status);
+                }
+                else
+                {
+                    if (opcion == "leidoseleccionado")
+                    {
+                        status = "false";
+                        libro.AñadirLeido(usuario.id, libro.id, status);
+                    }
+                    else
+                    {
+                        if (opcion == "bibloteca")
+                        {
+                            status = "true";
+                            libro.AñadirGuardado(usuario.id, libro.id, status);
+                        }
+                        else
+                        {
+                            status = "false";
+                            libro.AñadirGuardado(usuario.id, libro.id, status);
+                        }
+                    }
+                }
+
+
+            }
+                     
+                     
             //Devuelve lista comentarios
             listacomentarios = new List<Comentarios>();
             listacomentarios = comen.ListarComentarios(libro.titulo);
@@ -206,12 +316,13 @@ namespace liber.Controllers
             libro = libro.BuscarLibro(consulta, libro.titulo);
             ViewBag.id = libro.id;
             ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.promedio;
+            ViewBag.puntuaciongeneral = libro.promedio;
+            ViewBag.puntuacion = comen.PuntuacionUsuario(usuario.id, libro.id);
             ViewBag.autor = libro.autor;
             ViewBag.genero = libro.genero;
             ViewBag.sinopsis = libro.sinopsis;
             ViewBag.imagen = libro.imagen;
-            libro = libro.Opciones(Convert.ToInt32(idtitulo), usuario.id);
+            libro = libro.Opciones(libro.id, usuario.id);
             ViewBag.Guardado = libro.guardado;
             ViewBag.Leido = libro.leido;
             return View("DetallesLibro");
@@ -247,7 +358,8 @@ namespace liber.Controllers
             libro = libro.BuscarLibro(consulta, titulo);
             ViewBag.id = libro.id;
             ViewBag.titulo = libro.titulo;
-            ViewBag.puntuacion = libro.promedio;
+            ViewBag.puntuaciongeneral =libro.promedio; 
+            ViewBag.puntuacion =comen.PuntuacionUsuario(usuario.id,libro.id); 
             ViewBag.autor = libro.autor;
             ViewBag.genero = libro.genero;
             ViewBag.sinopsis = libro.sinopsis;
@@ -256,9 +368,9 @@ namespace liber.Controllers
             ViewBag.Guardado = libro.guardado;
             ViewBag.Leido = libro.leido;
 
-            return View("DetallesLibro");
+            return View("DetallesLibro",libro.titulo);
         }
-        public ActionResult ListadoLibroNoEncontrado(Libros libro)
+        public ActionResult ListadoLibroNoEncontrado()
         {
             ViewBag.ingresado = libro.ingresado;
             List<Libros> listLibro1 = new List<Libros>();
@@ -285,7 +397,7 @@ namespace liber.Controllers
             {
                 case "Mejor":
                     consulta = "SeleccionarMejor";
-                   listLibro=libro.SeleccionarMejor(consulta);
+                    listLibro = libro.SeleccionarMejor(consulta);
                     ViewBag.libros = listLibro;
                     break;
                 case "Genero1":
@@ -298,12 +410,23 @@ namespace liber.Controllers
                     listLibro = libro.SeleccionarMejor(consulta);
                     ViewBag.libros = listLibro;
                     break;
-              
 
 
-
-            }                                                                                                                                                                 
+            }
             return View();
         }
+        public ActionResult Parametros(string parametro)
+        {
+            //Si no lo encontro deberia mostrarse opciones similares  
+
+            string h = parametro;
+            consulta = "Buscar";
+            listLibro = libro.Links(consulta, parametro);
+                               
+                    ViewBag.libros = listLibro;
+                
+                     return View() ;
+            }
+          
+        }
     }
-}

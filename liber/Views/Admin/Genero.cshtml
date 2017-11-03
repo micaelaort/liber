@@ -1,0 +1,71 @@
+﻿@using liber.Models
+@model Generos
+
+@{
+    ViewBag.Title = "Genero";
+    Layout = "~/Views/Shared/_AdminLayoutcshtml.cshtml";
+}
+
+<h2>Genero</h2>
+<body>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tables
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i> Tables
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 id="TituloBanner">Generos</h2>
+
+                    <a class="btn btn-lg btn-default" href=@Url.Action("AgregarGenero","Admin")>Agregar Género</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*
+                                    como hacer que aparezca un objeto de una clase en una tabla*@
+
+                                @{foreach (Generos gen in (ViewBag.listageneros))
+                                    {
+                                        <tr class="fila">
+
+                                            <td>@gen.nombre</td>
+
+                                           
+                                            <td>
+                                                <!--lo que ve el usuario/view/controller/parametro-->
+                                                @Html.ActionLink("Modificar", "ModificarGenero", "Admin", new { idgenero = gen.id}, null)
+                                               
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

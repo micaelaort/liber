@@ -1,0 +1,37 @@
+﻿@using liber.Models
+@model Trivias
+@{
+    ViewBag.Title = "Ranking";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Ranking</h2>
+
+<div id="page-wrapper">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Puntaje</th>
+                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*
+                                como hacer que aparezca un objeto de una clase en una tabla*@
+
+                            @{foreach (Trivias triv in (ViewBag.lista))
+                                {
+                                    <tr class="fila">
+
+                                        <td>@triv.user</td>
+                                        <td>@triv.puntuacion</td>
+                                       
+                                     </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>

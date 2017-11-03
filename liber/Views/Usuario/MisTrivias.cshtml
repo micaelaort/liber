@@ -1,0 +1,56 @@
+﻿@using liber.Models
+@model Trivias
+@{
+    ViewBag.Title = "MisTrivias";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<ul id="MenuUser">
+    <li><a class="OpcionesUser" href="@Url.Action("MiBiblioteca","Usuario")">Mi Bibiloteca</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisLibros","Usuario")">Mis libros pendientes</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisEventos","Usuario")">Mis Eventos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("MisTrivias","Usuario")">Mis Trivias</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("ActualizarDatos","Usuario")">Actualizar datos</a></li>
+    <li><a class="OpcionesUser" href="@Url.Action("CerrarSesion","Usuario")">Cerrar Sesión</a></li>
+</ul>
+<h2>MisTrivias</h2>
+
+<body>
+
+    <div class="Opcion">
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 id="Tituloevento">trivias</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Trivia</th>
+                                <th>Puntaje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*
+                                como hacer que aparezca un objeto de una clase en una tabla*@
+
+                            @{foreach (Trivias triv in (ViewBag.lista))
+                                {
+                                    <tr class="fila">
+
+                                        <td>@triv.nombre</td>
+
+                                       <td>@triv.puntuacion</td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
